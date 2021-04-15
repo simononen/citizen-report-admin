@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "citizen-report-admin"
+  "defaultProject": "citizen-report-admin",
+  "cli": {
+    "analytics": "9df68eb0-72d8-4ebe-9b58-978df6c74cfb"
+  }
 }
