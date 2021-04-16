@@ -1,108 +1,126 @@
-<div class="min-h-screen flex">
-  <div class="w-3/5 bg-gray-50">
-    <div class="flex-col justify-evenly p-4 space-y-10">
-      <div class="flex space-x-4">
-        <div class="w-16 h-16 bg-blue-900 rounded-lg border-4 shadow">
+<div class="flex flex-col">
+  <div>
+    <div class="my-4 text-3xl font-thin">Dashboard Statistics</div>
+    <!-- <div class="bg-green-50 border border-gray-200 w-1/3 py-4 px-8 space-y-4">
+      <div class="flex justify-between">
+        <div class="text-gray-900 text-lg">
+          Report
         </div>
-        <div class="flex flex-col justify-evenly">
-          <span class="text-gray-300 font-semibold uppercase text-sm leading-4">store</span>
-          <span class="text-base text-gray-700 font-bold">Bindford Ltd.</span>
-        </div>
-        <div class="flex justify-end">
-          <svg class="w-5 h-5 p-1 text-gray-800 border rounded-full font-bold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        <div>
+          Weekly
         </div>
       </div>
-
       <div>
-        <span class="text-gray-300 text-sm uppercase leading-3 font-medium">Civic Education</span>
-        <ul class="my-2">
-          <li class="hover:bg-white hover:rounded hover:border p-2">
-            <a href="#">
-             <div class="flex space-x-2">
-               <svg class="w-5 h-5 text-gray-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"></path></svg>
-               <div class="text-xs text-gray-800 uppercase leading-5">
-                 History Lessons
-               </div>
-             </div>
-            </a>
-          </li>
-          <li class="hover:bg-white hover:border p-2 rounded">
-            <a href="#">
-             <div class="flex space-x-2">
-               <svg class="w-5 h-5 text-gray-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path></svg>
-               <div class="text-xs text-gray-800 uppercase leading-5">
-                 Illustrated Vidoes
-               </div>
-             </div>
-            </a>
-          </li>
-          <li class="hover:bg-white hover:border p-2 rounded">
-            <a href="#">
-             <div class="flex space-x-2">
-               <svg class="w-5 h-5 text-gray-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z" clip-rule="evenodd"></path></svg>
-               <div class="text-xs text-gray-800 uppercase leading-5">
-                 Podcasts
-               </div>
-             </div>
-            </a>
-          </li>
-          <li class="hover:bg-white hover:border p-2 rounded">
-            <a href="#">
-             <div class="flex space-x-2">
-               <svg class="w-5 h-5 text-gray-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path></svg>
-               <div class="text-xs text-gray-800 uppercase leading-5">
-                 Video Materials
-               </div>
-             </div>
-            </a>
-          </li>
-          <li class="hover:bg-white hover:border p-2 rounded">
-            <a href="#">
-             <div class="flex space-x-2">
-               <svg class="w-5 h-5 text-gray-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"></path><path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z"></path></svg>
-               <div class="text-xs text-gray-800 uppercase leading-5">
-                 Written Articles
-               </div>
-             </div>
-            </a>
-          </li>
-        </ul>
+        Available Funds
       </div>
-
       <div>
-        <span class="text-gray-300 text-sm uppercase leading-3 font-medium">Directory</span>
-        <ul class="my-2">
-          <li class="hover:bg-white hover:rounded hover:border p-2">
-            <a href="#">
-             <div class="flex space-x-2">
-               <svg class="w-5 h-5 text-gray-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
-               <div class="text-xs text-gray-800 uppercase leading-5">
-                 Districts
-               </div>
-             </div>
-            </a>
-          </li>
-        </ul>
+        <span>$</span>
+        <span>24000</span>
+        <span>12.2%</span>
       </div>
-
+      <p>
+        Total Net Margin
+      </p>
+      <p>
+        Sales Earning
+      </p>
       <div>
-        <span class="text-gray-300 text-sm uppercase leading-3 font-medium">Settings</span>
-        <ul class="my-2">
-          <li class="hover:bg-white hover:rounded hover:border p-2">
-            <a href="#">
-             <div class="flex space-x-2">
-               <svg class="w-5 h-5 text-gray-800" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
-               <div class="text-xs text-gray-800 uppercase leading-5">
-                 Account
-               </div>
-             </div>
-            </a>
-          </li>
-        </ul>
+        Download Report
       </div>
-    </div>
+    </div> -->
   </div>
-  <div class="p-8 bg-white">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam incidunt odit harum necessitatibus accusamus numquam nisi libero dolore, quam doloribus itaque fuga. Eaque recusandae minima odio tenetur. Minima, sunt maiores!
+  <div>
+    <section class="text-gray-600 body-font">
+      <div class="container py-2 mx-auto">
+        <div class="flex flex-wrap -m-4 text-center">
+          <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+            <div class="border-2 border-gray-200 px-4 py-6 rounded-lg">
+              <svg
+                class="text-green-500 w-12 h-12 mb-3 inline-block"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                ></path>
+              </svg>
+              <h2 class="title-font font-medium text-3xl text-gray-900">10K</h2>
+              <p class="leading-relaxed">History Lessons</p>
+            </div>
+          </div>
+          <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+            <div class="border-2 border-gray-200 px-4 py-6 rounded-lg">
+              <svg
+                class="text-green-500 w-12 h-12 mb-3 inline-block"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"
+                ></path>
+              </svg>
+              <h2 class="title-font font-medium text-3xl text-gray-900">30K</h2>
+              <p class="leading-relaxed">Illustrated Videos</p>
+            </div>
+          </div>
+          <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+            <div class="border-2 border-gray-200 px-4 py-6 rounded-lg">
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="text-green-500 w-12 h-12 mb-3 inline-block"
+                viewBox="0 0 24 24"
+              >
+                <path d="M3 18v-6a9 9 0 0118 0v6"></path>
+                <path
+                  d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"
+                ></path>
+              </svg>
+              <h2 class="title-font font-medium text-3xl text-gray-900">356</h2>
+              <p class="leading-relaxed">Podcasts</p>
+            </div>
+          </div>
+          <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+            <div class="border-2 border-gray-200 px-4 py-6 rounded-lg">
+              <svg
+                class="text-green-500 w-12 h-12 mb-3 inline-block"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"
+                ></path>
+              </svg>
+              <h2 class="title-font font-medium text-3xl text-gray-900">150</h2>
+              <p class="leading-relaxed">Video Materials</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </div>

@@ -22,7 +22,11 @@ const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
-  }
+  },
+
+  // { path: 'settings', loadChildren: () => import('./directorate/district/setting/setting.module').then(m => m.SettingModule) },
+
+  { path: 'settings', loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule) }
 
 ];
 
