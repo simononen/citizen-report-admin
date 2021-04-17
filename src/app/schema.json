@@ -1,0 +1,152 @@
+[
+  {
+    "government_directory": [
+      {
+        "id": "",
+        "district_name": "district name",
+        "ea_code": "",
+        "division": [
+          {
+            "id": "",
+            "name": "",
+            "subcounty_code": "",
+            "parishes": [
+              {
+                "name": "",
+                "parish_code": "",
+                "villages": [
+                  {
+                    "id": "",
+                    "name": "village name",
+                    "village_code": "",
+                    "municipal_council": "municipal council name",
+                    "needs": [
+                      {
+                        "item_name": "",
+                        "description": ""
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "has_city": false,
+        "city": "city name",
+        "location": {
+          "latitude": "",
+          "longitude": ""
+        },
+        "location_region": "central",
+        "contact_information": [
+          {
+            "office": "",
+            "contact_details": ""
+          }
+        ],
+        "aggregations": {
+          "id": "",
+          "primary_schools": 50,
+          "colleges": 300,
+          "health_centre_3": 4,
+          "health_centre_4": 4
+        },
+        "points_of_interest": [
+          {
+            "id": "",
+            "main_language": "",
+            "description": "",
+            "website": "",
+            "favourites": {
+              "id": "",
+              "name": "Kibuli"
+            }
+          }
+        ]
+      }
+    ],
+    "civic_education": [
+      {
+        "videos": [
+          {
+            "id": "",
+            "title": "",
+            "description": "",
+            "thumbnail": "",
+            "cover": "",
+            "link": "",
+            "tags": [
+              {
+                "id": "",
+                "name": "education"
+              }
+            ]
+          }
+        ],
+        "podcasts": [
+          {
+            "id": "",
+            "title": "",
+            "description": "",
+            "thumbnail": "",
+            "cover": "",
+            "link": "",
+            "tags": [
+              {
+                "id": "",
+                "name": "education"
+              }
+            ]
+          }
+        ],
+        "infographic": [
+          {
+            "id": "",
+            "title": "",
+            "description": "",
+            "thumbnail": "",
+            "cover": "",
+            "link": "",
+            "tags": "education"
+          }
+        ],
+        "illustrated_stories": [
+          {
+            "id": "",
+            "title": "",
+            "description": "",
+            "thumbnail": "",
+            "cover": "",
+            "link": "",
+            "tags": "governance"
+          }
+        ],
+        "history_lessons": [
+          {
+            "id": "",
+            "title": "",
+            "description": "",
+            "thumbnail": "",
+            "cover": "",
+            "link": "",
+            "chapter": "",
+            "tags": "health"
+          }
+        ],
+        "articles": [
+          {
+            "id": "",
+            "title": "",
+            "description": "",
+            "content": "",
+            "thumbnail": "",
+            "cover": "",
+            "link": "",
+            "tag": "education"
+          }
+        ]
+      }
+    ]
+  }
+]
