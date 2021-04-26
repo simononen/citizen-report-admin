@@ -12,10 +12,14 @@ module.exports = {
     },
     darkMode: 'class', // or 'media' or 'class'
     theme: {
-      extend: {},
+      extend: {
+
+      },
     },
     variants: {
-      extend: {},
+      extend: {
+
+      },
     },
     plugins: [require('@tailwindcss/aspect-ratio'),require('@tailwindcss/forms'),require('@tailwindcss/line-clamp'),require('@tailwindcss/typography')],
 };

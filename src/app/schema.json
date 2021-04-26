@@ -38,7 +38,7 @@
           "latitude": "",
           "longitude": ""
         },
-        "location_region": "central",
+        "region": "central",
         "contact_information": [
           {
             "office": "",
