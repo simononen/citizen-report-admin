@@ -1,0 +1,54 @@
+<div class="flex flex-col">
+  <div class="">
+    <div class="flex my-4 text-2xl font-thin">
+      Add Health Statistics
+    </div>
+  </div>
+
+  <div class="flex justify-end">
+    <button class="border px-2 py-2 bg-gray-900 text-white rounded-md" [routerLink]="['/social-econ-stats/new-health-stats']">Back</button>
+  </div>
+
+  <div>
+    <div class="flex flex-col md:ml-auto w-full mt-4">
+      <form [formGroup]="healthStatsForm" (ngSubmit)="onSaveDistrict(healthStatsForm)" class="text-gray-900">
+        <div class="md:flex md:space-x-4 w-full py-1">
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Select District</mat-label>
+            <input matInput placeholder="Search Districts" aria-label="State" [matAutocomplete]="auto"
+              formControlName="district_id">
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayState" (optionSelected)="getDistrictDetails($event.option.value)" required>
+              <mat-option *ngFor="let item of filteredDistricts | async" [value]="item">
+                <span class="font-bold text-sm text-gray-700">{{item.name}}</span>
+              </mat-option>
+            </mat-autocomplete>
+            <mat-error *ngIf="district?.invalid">
+              <mat-error *ngIf="district?.errors?.required">District
+                <strong>required</strong>
+              </mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="md:flex md:space-x-4 w-full py-1">
+          <mat-form-field appearance="outline" class="md:w-1/2 w-full">
+            <mat-label>Item</mat-label>
+            <input matInput formControlName="item">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="md:w-1/2 w-full">
+            <mat-label>Number</mat-label>
+            <input matInput formControlName="number">
+
+          </mat-form-field>
+        </div>
+        <div class="flex space-x-2">
+          <button type="button" class="text-gray-500 bg-white border border-gray-500 py-2 px-6 focus:outline-none hover:text-white hover:bg-gray-600 rounded text-lg">Cancel</button>
+          <button type="submit" class="text-white bg-gray-500 border-0 py-2 px-6 focus:outline-none hover:bg-gray-600 rounded text-lg">Save</button>
+        </div>
+      </form>
+
+    </div>
+
+
+  </div>
+</div>
