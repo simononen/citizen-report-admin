@@ -7,7 +7,7 @@ import { NewDistrictComponent } from './new-district/new-district.component';
 import { NgModule } from '@angular/core';
 
 const routes: Routes = [
-  { path: '', component: DistrictComponent },
+  { path: '', component: DistrictListComponent },
   { path: 'district-lists', component: DistrictListComponent },
   { path: 'new-district', component: NewDistrictComponent },
   { path: 'edit-district', component: EditDistrictComponent },

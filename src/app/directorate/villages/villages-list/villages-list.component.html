@@ -1,17 +1,17 @@
 <div class="">
   <div class="flex my-4 text-2xl font-thin">
-    Districts Overview
+    Parishes Overview
   </div>
 </div>
 
 <div class="flex justify-end">
-  <button class="border px-2 py-2 bg-gray-900 text-white rounded-md" [routerLink]="['new-district']">Add a district</button>
+  <button class="border px-2 py-2 bg-gray-900 text-white rounded-md" [routerLink]="['new-village']">Add a Village</button>
 </div>
 
 
 
 <div class="w-full mx-auto overflow-auto">
-  <h3>List of All Districts</h3>
+  <h3>List of All Parishes</h3>
 </div>
 
 <section class="text-gray-600 body-font">
@@ -22,19 +22,15 @@
           <tr class="bg-gray-200 text-gray-600 uppercase">
             <th class="px-4 py-3 title-font tracking-wider font-medium text-sm">#</th>
             <th class="px-4 py-3 title-font tracking-wider font-medium text-sm">Name</th>
-            <th class="px-4 py-3 title-font tracking-wider font-medium text-sm">Region</th>
-            <th class="px-4 py-3 title-font tracking-wider font-medium text-sm">Latitude</th>
-            <th class="px-4 py-3 title-font tracking-wider font-medium text-sm">Longitude</th>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-sm">Code</th>
             <th class="px-4 py-3 title-font tracking-wider font-medium text-sm">Actions</th>
           </tr>
         </thead>
         <tbody>
           <tr class="border-b border-gray-200 hover:bg-gray-100 font-thin">
             <td class="px-4 py-3">1</td>
-            <td class="px-4 py-3 font-medium">Kampala</td>
-            <td class="px-4 py-3">Central</td>
-            <td class="px-4 py-3">1.3224</td>
-            <td class="px-4 py-3">3.245</td>
+            <td class="px-4 py-3 font-medium">Kyadondo</td>
+            <td class="px-4 py-3">12800</td>
             <td class="px-4 py-3">
               <div class="flex space-x-4">
                 <svg class="w-4 h-4 transform hover:text-green-500 hover:scale-110 hover:cursor-pointer" [routerLink]="['edit-district']" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
