@@ -1,4 +1,4 @@
-export interface Parish {
+export interface IParish {
   id?: number | string,
   parish_code?: string,
   parish_name: string,

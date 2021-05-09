@@ -23,7 +23,7 @@ const httpOptions = {
 })
 export class AuthService {
 
-    public currentUser: IUser;
+    public currentUser: IUser = {};
     private handleError: HandleError;
 
     private readonly apiUrl = environment.apiUrl;
@@ -43,19 +43,18 @@ export class AuthService {
     onRegister(user: IUser): Observable<any[] | IUser> {
         const request = JSON.stringify(
             {
-                userName: user.userName, firstName: user.firstName, lastName: user.lastName,
-                role: user.role, entity: user.entity, email: user.email, password: user.password,
+                email: user?.email, password: user?.password,
             }
         );
         return this.http.post(this.registerUrl, request, httpOptions)
             .pipe(
-                map((response: IUser) => {
+                map((response: any) => {
                     // Receive jwt token in the response
                     const token: string = response['access_token'];
                     // If we have a token, proceed
                     if (token) {
                         this.setToken(token);
-                        this.getUser().subscribe();
+                        // this.getUser().subscribe();
                     }
                     return response;
                 }),
@@ -72,13 +71,13 @@ export class AuthService {
         return this.http.post(this.loginUrl, request,
             httpOptions)
             .pipe(
-                map((response: IUser) => {
+                map((response: any) => {
                     // Receive jwt token in the response
                     const token: string = response['access_token'];
                     // If we have a token, proceed
                     if (token && token !== null && token !== undefined) {
                         this.setToken(token);
-                        this.getUser().subscribe();
+                        // this.getUser().subscribe();
                         this.router.navigate(['/home']);
                     }
                     return response;
@@ -104,24 +103,24 @@ export class AuthService {
     }
 
     getToken(): string {
-        return localStorage.getItem('token');
+        return localStorage.getItem('token') || '';
     }
 
-    getUser(): Observable<IUser> {
-        return this.http.get(this.apiUrl + '/me')
-            .pipe(
-                tap(
-                    (res) => {
-                        this.currentUser = res['data']['user'];
-                        const role = res['data']['roles'][0];
-                        localStorage.setItem('user', JSON.stringify(this.currentUser));
-                        localStorage.setItem('role', JSON.stringify(role));
-                        localStorage.setItem('role_name', res['data']['roles'][0]['name']);
-                        // localStorage.setItem('resetter', this.currentUser)
-                    }
-                )
-            );
-    }
+    // getUser(): Observable<IUser> {
+    //     return this.http.get(this.apiUrl + '/me')
+    //         .pipe(
+    //             tap(
+    //                 (res) => {
+    //                     this.currentUser = res['data']['user'];
+    //                     const role = res['data']['roles'][0];
+    //                     localStorage.setItem('user', JSON.stringify(this.currentUser));
+    //                     localStorage.setItem('role', JSON.stringify(role));
+    //                     localStorage.setItem('role_name', res['data']['roles'][0]['name']);
+    //                     // localStorage.setItem('resetter', this.currentUser)
+    //                 }
+    //             )
+    //         );
+    // }
 
     isAuthenticated(): boolean {
         const token: string = this.getToken();
@@ -139,17 +138,17 @@ export class AuthService {
         return localStorage.getItem('role_name');
     }
 
-    getRoleName() {
-        return JSON.parse(localStorage.getItem('role'));
-    }
+    // getRoleName() {
+    //     return JSON.parse(localStorage.getItem('role'));
+    // }
 
-    getCurrentUser() {
-        return JSON.parse(localStorage.getItem('user'));
-    }
+    // getCurrentUser() {
+    //     return JSON.parse(localStorage.getItem('user'));
+    // }
 
-    getUserId() {
-        return JSON.parse(localStorage.getItem('user'))['id'];
-    }
+    // getUserId() {
+    //     return JSON.parse(localStorage.getItem('user'))['id'];
+    // }
 
     resetPassword(email: string) {
         return this.http.post(`${this.passwordReset}`, email)

@@ -15,7 +15,11 @@ const routes: Routes = [
   { path: 'counties', loadChildren: () => import('./counties/counties.module').then(m => m.CountiesModule) },
   { path: 'sub-counties', loadChildren: () => import('./sub-counties/sub-counties.module').then(m => m.SubCountiesModule) },
   { path: 'parishes', loadChildren: () => import('./parishes/parishes.module').then(m => m.ParishesModule) },
-  { path: 'villages', loadChildren: () => import('./villages/villages.module').then(m => m.VillagesModule) }
+  { path: 'villages', loadChildren: () => import('./villages/villages.module').then(m => m.VillagesModule) },
+  { path: 'favourites', loadChildren: () => import('./favourites/favourites.module').then(m => m.FavouritesModule) },
+  { path: 'contact-information', loadChildren: () => import('./contact-information/contact-information.module').then(m => m.ContactInformationModule) },
+  { path: 'leadership', loadChildren: () => import('./leadership/leadership.module').then(m => m.LeadershipModule) },
+
 ];
 
 @NgModule({

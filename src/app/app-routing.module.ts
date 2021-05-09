@@ -24,9 +24,15 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
 
-  // { path: 'settings', loadChildren: () => import('./directorate/district/setting/setting.module').then(m => m.SettingModule) },
+  {
+    path: 'settings',
+    loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule)
+  },
 
-  { path: 'settings', loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule) }
+  {
+    path: 'social-econ-stats',
+    loadChildren: () => import('./social-econ-stats/social-econ-stats.module').then(m => m.SocialEconStatsModule)
+  }
 
 ];
 

@@ -1,7 +1,7 @@
 <div class="flex flex-col">
   <div class="">
     <div class="flex my-4 text-2xl font-thin">
-      Add County
+      Add Parish
     </div>
   </div>
 
@@ -32,11 +32,11 @@
 
         <div class="md:flex md:space-x-4 w-full py-1">
           <mat-form-field appearance="outline" class="md:w-1/2 w-full">
-            <mat-label>County Code</mat-label>
+            <mat-label>Parish Code</mat-label>
             <input matInput formControlName="parish_code">
           </mat-form-field>
           <mat-form-field appearance="outline" class="md:w-1/2 w-full">
-            <mat-label>County Name</mat-label>
+            <mat-label>Parish Name</mat-label>
             <input matInput formControlName="parish_name">
             <mat-error *ngIf="parishName?.invalid">
               <mat-error *ngIf="parishName?.errors?.required">Parish Name

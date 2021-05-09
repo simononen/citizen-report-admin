@@ -1,4 +1,4 @@
-export interface Village {
+export interface IVillage {
   id?: number | string,
   village_code?: string,
   village_name: string,

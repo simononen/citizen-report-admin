@@ -1,12 +1,12 @@
 <div class="flex flex-col">
   <div class="">
     <div class="flex my-4 text-2xl font-thin">
-      Add County
+      Add Village
     </div>
   </div>
 
   <div class="flex justify-end">
-    <button class="border px-2 py-2 bg-gray-900 text-white rounded-md" [routerLink]="['/directorate/counties']">Back</button>
+    <button class="border px-2 py-2 bg-gray-900 text-white rounded-md" [routerLink]="['/directorate/villages']">Back</button>
   </div>
 
   <div>
@@ -32,12 +32,12 @@
 
         <div class="md:flex md:space-x-4 w-full py-1">
           <mat-form-field appearance="outline" class="md:w-1/2 w-full">
-            <mat-label>County Code</mat-label>
-            <input matInput formControlName="parish_code">
+            <mat-label>Village Code</mat-label>
+            <input matInput formControlName="village_code">
           </mat-form-field>
           <mat-form-field appearance="outline" class="md:w-1/2 w-full">
-            <mat-label>County Name</mat-label>
-            <input matInput formControlName="parish_name">
+            <mat-label>Village Name</mat-label>
+            <input matInput formControlName="village_code">
             <mat-error *ngIf="villageName?.invalid">
               <mat-error *ngIf="villageName?.errors?.required">Parish Name
                 <strong>required</strong>

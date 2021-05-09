@@ -1,16 +1,21 @@
-<div class="min-h-screen">
+<div class="min-h-screen" *ngIf="!_authService.isAuthenticated()">
   <div class="w-auto h-screen fixed bg-gray-100">
     <div class="flex-col justify-evenly py-2 space-y-8 mx-4">
       <div class="flex space-x-4 justify-evenly">
         <div class="w-10 h-10 bg-green-900 rounded-lg border-4 shadow">
           <!-- <img src="../assets/img/logo.png" alt="" srcset=""> -->
         </div>
-        <a class="flex flex-col justify-evenly block" routerLink="/">
+        <a class="flex flex-col justify-evenly" routerLink="/">
           <span class="text-gray-500 font-semibold uppercase text-sm leading-4">Dashboard</span>
           <span class="text-base text-gray-700 font-bold">Citizen Report</span>
         </a>
         <div class="flex justify-end">
-          <svg class="w-5 h-5 p-1 text-gray-800 border rounded-full font-bold bg-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          <span mat-button [matMenuTriggerFor]="menu" class="hover:cursor-pointer">
+            <svg class="w-5 h-5 p-1 text-gray-800 border rounded-full font-bold bg-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </span>
+          <mat-menu #menu="matMenu">
+            <a href="#" mat-menu-item>View Website</a>
+          </mat-menu>
         </div>
       </div>
 
@@ -67,7 +72,7 @@
         <span class="text-gray-500 text-sm uppercase leading-3 font-medium">Directory</span>
         <ul class="my-2">
           <li class="my-1">
-            <a routerLink="/directorate/districts" routerLinkActive="transition-all duration-500 ease-in-out bg-white font-bold text-green-500" class="p-2 rounded hover:bg-white block text-gray-500">
+            <a routerLink="/directorate" routerLinkActive="transition-all duration-500 ease-in-out bg-white font-bold text-green-500" class="p-2 rounded hover:bg-white block text-gray-500">
               <div class="flex space-x-2">
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
                 <div class="text-xs capitalize leading-5">Districts</div>
@@ -75,34 +80,26 @@
             </a>
           </li>
           <li class="my-1">
-            <a routerLink="/directorate/counties" routerLinkActive="transition-all duration-500 ease-in-out bg-white font-bold text-green-500" class="p-2 rounded hover:bg-white block text-gray-500">
+            <a routerLink="/social-econ-stats/education" routerLinkActive="transition-all duration-500 ease-in-out bg-white font-bold text-green-500" class="p-2 rounded hover:bg-white block text-gray-500">
               <div class="flex space-x-2">
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
-                <div class="text-xs capitalize leading-5">Counties</div>
+                <div class="text-xs capitalize leading-5">Education</div>
               </div>
             </a>
           </li>
           <li class="my-1">
-            <a routerLink="/directorate/sub-counties" routerLinkActive="transition-all duration-500 ease-in-out bg-white font-bold text-green-500" class="p-2 rounded hover:bg-white block text-gray-500">
+            <a routerLink="/social-econ-stats/governance" routerLinkActive="transition-all duration-500 ease-in-out bg-white font-bold text-green-500" class="p-2 rounded hover:bg-white block text-gray-500">
               <div class="flex space-x-2">
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
-                <div class="text-xs capitalize leading-5">Sub Counties</div>
+                <div class="text-xs capitalize leading-5">Governance</div>
               </div>
             </a>
           </li>
           <li class="my-1">
-            <a routerLink="/directorate/parishes" routerLinkActive="transition-all duration-500 ease-in-out bg-white font-bold text-green-500" class="p-2 rounded hover:bg-white block text-gray-500">
+            <a routerLink="/social-econ-stats/health" routerLinkActive="transition-all duration-500 ease-in-out bg-white font-bold text-green-500" class="p-2 rounded hover:bg-white block text-gray-500">
               <div class="flex space-x-2">
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
-                <div class="text-xs capitalize leading-5">Parishes</div>
-              </div>
-            </a>
-          </li>
-          <li class="my-1">
-            <a routerLink="/directorate/villages" routerLinkActive="transition-all duration-500 ease-in-out bg-white font-bold text-green-500" class="p-2 rounded hover:bg-white block text-gray-500">
-              <div class="flex space-x-2">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
-                <div class="text-xs capitalize leading-5">Villages</div>
+                <div class="text-xs capitalize leading-5">Health</div>
               </div>
             </a>
           </li>
@@ -127,13 +124,16 @@
   </div>
   <div class="w-9/12 bg-white mx-2 ml-64">
     <div class="flex flex-col">
-      <div class="flex border-b border-gray-100 h-16 justify-end py-4 space-x-2">
+      <div class="flex border-b border-gray-100 h-16 justify-end py-4 space-x-4">
         <div>
           <svg class="w-8 h-8 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd"></path></svg>
         </div>
-        <div>
-          <p class="text-sm leading-7 text-gray-500 font-semibold">Admin</p>
-        </div>
+        <span mat-button [matMenuTriggerFor]="logoutMenu" class="hover:cursor-pointer">
+          <span class="text-sm leading-7 text-gray-500 font-semibold">Admin</span>
+        </span>
+        <mat-menu (click)="logout()" #logoutMenu="matMenu">
+          <span mat-menu-item>Log Out</span>
+        </mat-menu>
       </div>
       <div class="py-2">
         <router-outlet>
@@ -143,4 +143,4 @@
     </div>
   </div>
 </div>
-
+<app-login *ngIf="!_authService.isAuthenticated()"></app-login>

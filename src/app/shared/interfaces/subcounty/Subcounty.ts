@@ -1,4 +1,4 @@
-export interface Subcounty {
+export interface ISubcounty {
   id?: number | string,
   sub_county_code?: string,
   sub_county_name: string,

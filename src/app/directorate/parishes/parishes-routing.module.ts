@@ -9,8 +9,8 @@ import { ParishesListComponent } from './parishes-list/parishes-list.component';
 const routes: Routes = [
   { path: '', component: ParishesListComponent },
   { path: 'parishes-list', component: ParishesListComponent},
-  { path: 'new-subcounty', component: NewParishComponent },
-  { path: 'edit-subcounty', component: EditParishComponent },
+  { path: 'new-parish', component: NewParishComponent },
+  { path: 'edit-parish', component: EditParishComponent },
 ];
 
 @NgModule({
