@@ -1,17 +1,27 @@
-import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { CommonModule } from '@angular/common';
-
-import { FavouritesRoutingModule } from './favourites-routing.module';
+import { EditFavouritesComponent } from './edit-favourites/edit-favourites.component';
 import { FavouritesComponent } from './favourites.component';
-
+import { FavouritesListComponent } from './favourites-list/favourites-list.component';
+import { FavouritesRoutingModule } from './favourites-routing.module';
+import { MaterialModule } from 'src/app/shared/material/material.module';
+import { NewFavouritesComponent } from './new-favourites/new-favourites.component';
+import { NgModule } from '@angular/core';
 
 @NgModule({
   declarations: [
-    FavouritesComponent
+    FavouritesComponent,
+    FavouritesListComponent,
+    NewFavouritesComponent,
+    EditFavouritesComponent
   ],
   imports: [
     CommonModule,
-    FavouritesRoutingModule
+    FavouritesRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialModule
   ]
 })
 export class FavouritesModule { }
