@@ -10,7 +10,7 @@ import { NgModule } from '@angular/core';
 @NgModule({
   declarations: [
     DashboardComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     CommonModule,

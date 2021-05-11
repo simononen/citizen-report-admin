@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DirectorateComponent implements OnInit {
 
+  isLoading: Boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {

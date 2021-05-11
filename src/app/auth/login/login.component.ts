@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit {
       }
     );
 
-    this.router.navigate(['directorate/districts']);
+    // this.router.navigate(['directorate/districts']);
   }
 
 }

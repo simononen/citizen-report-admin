@@ -12,7 +12,9 @@ import { HttpInterceptorService } from "./shared/services/http-interceptor/http-
 import { LoginComponent } from './auth/login/login.component';
 import { MaterialModule } from "./shared/material/material.module";
 import { NgModule } from '@angular/core';
+import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 import { NotFoundComponentComponent } from './shared/not-found-component/not-found-component.component';
+import { SharedModule } from "./shared/shared.module";
 import { ToastrModule } from "ngx-toastr";
 
 @NgModule({
@@ -20,7 +22,7 @@ import { ToastrModule } from "ngx-toastr";
     AppComponent,
     EmptyStateComponent,
     NotFoundComponentComponent,
-    DashboardNavComponent
+    DashboardNavComponent,
   ],
   imports: [
     BrowserModule,
