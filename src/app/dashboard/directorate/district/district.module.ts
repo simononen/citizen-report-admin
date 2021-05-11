@@ -6,7 +6,7 @@ import { DistrictDetailComponent } from './district-detail/district-detail.compo
 import { DistrictListComponent } from './district-list/district-list.component';
 import { DistrictRoutingModule } from './district-routing.module';
 import { EditDistrictComponent } from './edit-district/edit-district.component';
-import { MaterialModule } from '../../shared/material/material.module';
+import { MaterialModule } from '../../../shared/material/material.module';
 import { NewDistrictComponent } from './new-district/new-district.component';
 import { NgModule } from '@angular/core';
 

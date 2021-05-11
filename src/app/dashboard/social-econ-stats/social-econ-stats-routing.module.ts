@@ -7,7 +7,7 @@ const routes: Routes = [
   { path: '', component: SocialEconStatsComponent },
   { path: 'governance', loadChildren: () => import('./governance/governance.module').then(m => m.GovernanceModule) },
   { path: 'health', loadChildren: () => import('./health/health.module').then(m => m.HealthModule) },
-  { path: 'education', loadChildren: () => import('../social-econ-stats/education/education.module').then(m => m.EducationModule) }
+  { path: 'education', loadChildren: () => import('./education/education.module').then(m => m.EducationModule) }
 ];
 
 @NgModule({

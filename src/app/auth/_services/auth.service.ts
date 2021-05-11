@@ -123,11 +123,12 @@ export class AuthService {
     // }
 
     isAuthenticated(): boolean {
-        const token: string = this.getToken();
-        if (token) {
-            return true;
-        }
-        return false;
+      return false;
+        // const token: string = this.getToken();
+        // if (token) {
+        //     return true;
+        // }
+        // return false;
     }
 
     getUserRole() {

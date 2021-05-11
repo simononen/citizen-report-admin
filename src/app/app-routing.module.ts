@@ -1,38 +1,33 @@
 import { RouterModule, Routes } from '@angular/router';
 
+import { LoginComponent } from './auth/login/login.component';
 import { NgModule } from '@angular/core';
+import { NotFoundComponentComponent } from './shared/not-found-component/not-found-component.component';
 
 const routes: Routes = [
 
   {
     path: '',
+    loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+  },
+  {
+    path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
   },
-
-  {
-    path: 'civic-education',
-    loadChildren: () => import('./civic-education/civic-education.module').then(m => m.CivicEducationModule)
-  },
-
-  {
-    path: 'directorate',
-    loadChildren: () => import('./directorate/directorate.module').then(m => m.DirectorateModule)
-  },
-
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
 
-  {
-    path: 'settings',
-    loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule)
-  },
+  { path: "", redirectTo: "login", pathMatch: "full" },
+  { path: "login", component: LoginComponent, },
+  { path: "404", component: NotFoundComponentComponent },
 
-  {
-    path: 'social-econ-stats',
-    loadChildren: () => import('./social-econ-stats/social-econ-stats.module').then(m => m.SocialEconStatsModule)
-  }
+  { path: "**", redirectTo: "/404" },
 
 ];
 

@@ -1,30 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 
-import { CountyService } from '../_services/county.service';
-import { ICounty } from '../../../shared/interfaces/county/County';
-import Swal from 'sweetalert2'
+import { IParish } from 'src/app/shared/interfaces/parish/parish';
+import { IVillage } from '../../../../shared/interfaces/village/village';
+import { ParishService } from '../_services/parish.service';
+import Swal from 'sweetalert2';
+import { VillageService } from '../../villages/_services/village.service';
 
 @Component({
-  selector: 'app-counties-list',
-  templateUrl: './counties-list.component.html',
-  styleUrls: ['./counties-list.component.scss']
+  selector: 'app-parishes-list',
+  templateUrl: './parishes-list.component.html',
+  styleUrls: ['./parishes-list.component.scss']
 })
-export class CountiesListComponent implements OnInit {
+export class ParishesListComponent implements OnInit {
 
-  counties: ICounty[] = [];
+  parishes: IParish[] = [];
 
   res: any;
 
   constructor(
-    private _countiesService: CountyService,
+    private _parishService: ParishService,
   ) { }
 
   ngOnInit(): void {
-    this.getCounties();
+    this.getParishes();
   }
 
-  getCounties() {
-    this.res = this._countiesService.get();
+  getParishes() {
+    this.res = this._parishService.get();
 
     console.log('Response ', this.res);
   }
@@ -32,7 +34,7 @@ export class CountiesListComponent implements OnInit {
   confirmDelete() {
     Swal.fire({
       title: 'Are you sure want to delete?',
-      text: 'You will not be able to recover this county record',
+      text: 'You will not be able to recover this Parish record',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Yes, Delete',

@@ -10,13 +10,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './auth/login/login.component';
 import { MaterialModule } from "./shared/material/material.module";
 import { NgModule } from '@angular/core';
+import { NotFoundComponentComponent } from './shared/not-found-component/not-found-component.component';
 import { ToastrModule } from "ngx-toastr";
+import { DashboardNavComponent } from './shared/dashboard-nav/dashboard-nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmptyStateComponent,
-    LoginComponent
+    NotFoundComponentComponent,
+    DashboardNavComponent
   ],
   imports: [
     BrowserModule,
