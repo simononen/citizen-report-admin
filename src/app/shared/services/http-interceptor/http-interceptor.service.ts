@@ -24,19 +24,14 @@ export class HttpInterceptorService implements HttpInterceptor {
 
       intercept(req: HttpRequest<any>, next: HttpHandler):
       Observable<HttpEvent<any>> {
-      // console.log('interceptor running');
-      // Get the token from auth service.
       const authToken = this.auth.getToken();
       if (authToken) {
-        // Clone the request to add the new header.
-        const authReq = req.clone(
-          {
-            headers:
-              req.headers.set('Authorization', `Bearer ${authToken}`)
-          }
-        );
-        // console.log('interceptor running with new headers');
-        // send the newly created request
+        const authReq = req.clone({
+            headers: req.headers.set('Authorization', `Bearer ${authToken}`)
+              .set('Accept', 'application/vnd.api+json')
+              .set('Content-Type', 'application/vnd.api+json')
+        });
+
         return next.handle(authReq).pipe(
                   tap((event: HttpEvent<any>) => {
                     if (event instanceof HttpResponse) {
@@ -55,7 +50,6 @@ export class HttpInterceptorService implements HttpInterceptor {
                   })
                 );
               } else {
-                // console.log('interceptor without changes');
                 return next.handle(req);
               }
         }

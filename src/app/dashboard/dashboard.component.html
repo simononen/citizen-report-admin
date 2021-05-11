@@ -1,4 +1,4 @@
-<div class="min-h-screen" *ngIf="!_authService.isAuthenticated()">
+<div class="min-h-screen" *ngIf="_authService.isAuthenticated()">
   <div class="w-auto h-screen fixed bg-gray-100">
     <div class="flex-col justify-evenly py-2 space-y-8 mx-4">
       <div class="flex space-x-4 justify-evenly">
@@ -143,5 +143,5 @@
   </div>
 </div>
 
-<app-login *ngIf="_authService.isAuthenticated()"></app-login>
+<app-login *ngIf="!_authService.isAuthenticated()"></app-login>
 

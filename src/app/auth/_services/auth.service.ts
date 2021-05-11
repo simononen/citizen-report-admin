@@ -1,20 +1,20 @@
 import { HandleError, HttpHandleErrorService } from 'src/app/shared/services/http-handle-error/http-handle-error.service';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { IJsonAPIpost, IUser } from 'src/app/shared/interfaces/user/User';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { HttpHeaders } from '@angular/common/http';
-import { IUser } from 'src/app/shared/interfaces/user/User';
+import { IJsonAPIPost } from 'src/app/shared/interfaces/json-api-post/json-api-post';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
-// App imports
-
 // Setup headers
 const httpOptions = {
     headers: new HttpHeaders({
-        'Content-Type': 'application/json'
+      'Accept': 'application/vnd.api+json',
+      'Content-Type': 'application/vnd.api+json'
     })
 };
 
@@ -27,8 +27,8 @@ export class AuthService {
     private handleError: HandleError;
 
     private readonly apiUrl = environment.apiUrl;
-    private registerUrl = `${this.apiUrl}/register`;
-    private loginUrl = `${this.apiUrl}/login`;
+
+    private loginUrl = ``;
     private passwordResetLinkUrl = `${this.apiUrl}/reset-password-link`;
     private passwordReset = `${this.apiUrl}/reset-password`;
 
@@ -40,45 +40,26 @@ export class AuthService {
         this.handleError = _httpHandleErrorService.createHandleError('AuthService');
     }
 
-    onRegister(user: IUser): Observable<any[] | IUser> {
+    login(userData: any): Observable<any[] | IUser> {
+
         const request = JSON.stringify(
+            // {
+            //   email: userData.attributes.email,
+            //   password: userData.attributes.password
+            // }
             {
-                email: user?.email, password: user?.password,
+              "email": "admin@citizenreport.com",
+              "password": "fEStrado"
             }
         );
-        return this.http.post(this.registerUrl, request, httpOptions)
+
+        return this.http.post(`${this.apiUrl}/auth/login`, request, httpOptions)
             .pipe(
                 map((response: any) => {
-                    // Receive jwt token in the response
                     const token: string = response['access_token'];
-                    // If we have a token, proceed
-                    if (token) {
-                        this.setToken(token);
-                        // this.getUser().subscribe();
-                    }
-                    return response;
-                }),
-                catchError(this.handleError('onRegister', []))
-            );
-    }
-
-    login(user: IUser): Observable<any[] | IUser> {
-
-        const request = JSON.stringify(
-            { email: user.email, password: user.password }
-        );
-
-        return this.http.post(this.loginUrl, request,
-            httpOptions)
-            .pipe(
-                map((response: any) => {
-                    // Receive jwt token in the response
-                    const token: string = response['access_token'];
-                    // If we have a token, proceed
                     if (token && token !== null && token !== undefined) {
                         this.setToken(token);
-                        // this.getUser().subscribe();
-                        this.router.navigate(['/home']);
+                        // this.router.navigate(['/directorate/districts']);
                     }
                     return response;
                 }),
@@ -87,7 +68,7 @@ export class AuthService {
     }
 
     logout(): Observable<IUser> {
-        return this.http.post(this.apiUrl + '/logout',
+        return this.http.post(`${this.apiUrl}/logout`,
             httpOptions).pipe(
                 tap(
                     () => {
@@ -123,25 +104,12 @@ export class AuthService {
     // }
 
     isAuthenticated(): boolean {
-      return false;
-        // const token: string = this.getToken();
-        // if (token) {
-        //     return true;
-        // }
-        // return false;
+        const token: string = this.getToken();
+        if (token) {
+            return true;
+        }
+        return false;
     }
-
-    getUserRole() {
-        return localStorage.getItem('role_name');
-    }
-
-    getRole() {
-        return localStorage.getItem('role_name');
-    }
-
-    // getRoleName() {
-    //     return JSON.parse(localStorage.getItem('role'));
-    // }
 
     // getCurrentUser() {
     //     return JSON.parse(localStorage.getItem('user'));

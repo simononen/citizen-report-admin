@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Route, Router } from '@angular/router';
 
 import { AuthService } from 'src/app/auth/_services/auth.service';
+import { IUser } from 'src/app/shared/interfaces/user/User';
 
 @Component({
   selector: 'app-login',
@@ -39,6 +40,30 @@ export class LoginComponent implements OnInit {
   }
 
   login(form: FormGroup) {
+
+    let credentials: IUser = {
+      'email': form.controls.email.value,
+      'password': form.controls.password.value
+    }
+
+    let postObj = {
+      'data': {
+        'type': 'users',
+        'attributes': {
+          ...credentials
+        }
+      }
+    }
+
+    this._authService.login(postObj).subscribe(
+      (res) => {
+        this.router.navigate(['/directorate']);
+      },
+      (error) => {
+        this.router.navigate(['/login']);
+      }
+    );
+
     this.router.navigate(['directorate/districts']);
   }
 
