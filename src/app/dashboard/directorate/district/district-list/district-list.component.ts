@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { IDistrict, IDistricts, IMeta } from 'src/app/shared/interfaces/district/IDistrict';
+import { Observable, of } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 
 import { DistrictService } from '../_services/district.service';
-import { IDistrict } from 'src/app/shared/interfaces/district/IDistrict';
-import { Observable } from 'rxjs';
+import { ILink } from '../../../../shared/interfaces/district/IDistrict';
 import Swal from 'sweetalert2'
 
 @Component({
@@ -12,22 +14,52 @@ import Swal from 'sweetalert2'
 })
 export class DistrictListComponent implements OnInit {
 
-  districts: IDistrict[] = [];
+  isLoading: Boolean = false;
+  errorMessage: string = '';
+  districts$!: Observable<IDistrict[] | any>;
 
-  res: any;
+  links!: ILink;
+  meta!: IMeta;
+
+  nextPageNavigation!: string;
+  previousPageNavigation!: string;
+
+  currentPage!: number;
+  lastPage!: number;
 
   constructor(
     private _districtService: DistrictService,
   ) { }
 
   ngOnInit(): void {
-    this.getDistricts();
+    this.getAllDistricts('');
   }
 
-  getDistricts() {
-    this.res = this._districtService.get();
+  getAllDistricts(url: string) {
 
-    console.log('Response ', this.res);
+    this.districts$ = this._districtService.getAllDistricts(url).pipe(
+      tap(
+        data => {
+          // @ts-ignore
+          this.links = data['links'],
+          // @ts-ignore
+          this.meta = data['meta'],
+
+          this.nextPageNavigation  = this.links.next;
+          this.previousPageNavigation = this.links.prev;
+
+          this.currentPage = this.meta.current_page;
+          this.lastPage = this.meta.last_page;
+
+          console.log('Previous ', this.previousPageNavigation);
+        }
+      ),
+      catchError(error => {
+        this.errorMessage = error;
+        console.log(this.errorMessage);
+        return of(null);
+      }));
+
   }
 
   confirmDelete() {
