@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { IJsonAPILogin, IUser } from 'src/app/shared/interfaces/user/User';
 import { Route, Router } from '@angular/router';
 
 import { AuthService } from 'src/app/auth/_services/auth.service';
-import { IUser } from 'src/app/shared/interfaces/user/User';
 
 @Component({
   selector: 'app-login',
@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
       'password': form.controls.password.value
     }
 
-    let postObj = {
+    let postObj: IJsonAPILogin = {
       'data': {
         'type': 'users',
         'attributes': {
@@ -64,7 +64,6 @@ export class LoginComponent implements OnInit {
       }
     );
 
-    // this.router.navigate(['directorate/districts']);
   }
 
 }

@@ -4,7 +4,11 @@ export interface IUser {
   password?: string;
 }
 
-export interface IJsonAPIpost {
+export interface IJsonAPILogin {
+  data: ILogin
+}
+
+interface ILogin {
   type: string,
   attributes: IUser
 }

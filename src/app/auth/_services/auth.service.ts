@@ -1,11 +1,10 @@
 import { HandleError, HttpHandleErrorService } from 'src/app/shared/services/http-handle-error/http-handle-error.service';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
-import { IJsonAPIpost, IUser } from 'src/app/shared/interfaces/user/User';
+import { IJsonAPILogin, IUser } from 'src/app/shared/interfaces/user/User';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { HttpHeaders } from '@angular/common/http';
-import { IJsonAPIPost } from 'src/app/shared/interfaces/json-api-post/json-api-post';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
@@ -40,17 +39,17 @@ export class AuthService {
         this.handleError = _httpHandleErrorService.createHandleError('AuthService');
     }
 
-    login(userData: any): Observable<any[] | IUser> {
+    login(userData: IJsonAPILogin): Observable<any[] | IUser> {
 
         const request = JSON.stringify(
-            // {
-            //   email: userData.attributes.email,
-            //   password: userData.attributes.password
-            // }
             {
-              "email": "admin@citizenreport.com",
-              "password": "fEStrado"
+              email: userData.data.attributes.email,
+              password: userData.data.attributes.password
             }
+            // {
+            //   "email": "admin@citizenreport.com",
+            //   "password": "fEStrado"
+            // }
         );
 
         return this.http.post(`${this.apiUrl}/auth/login`, request, httpOptions)
