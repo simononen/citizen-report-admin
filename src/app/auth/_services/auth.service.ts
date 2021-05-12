@@ -9,14 +9,6 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
-// Setup headers
-const httpOptions = {
-    headers: new HttpHeaders({
-      'Accept': 'application/vnd.api+json',
-      'Content-Type': 'application/vnd.api+json'
-    })
-};
-
 @Injectable({
     providedIn: 'root',
 })
@@ -27,7 +19,6 @@ export class AuthService {
 
     private readonly apiUrl = environment.apiUrl;
 
-    private loginUrl = ``;
     private passwordResetLinkUrl = `${this.apiUrl}/reset-password-link`;
     private passwordReset = `${this.apiUrl}/reset-password`;
 
@@ -52,7 +43,7 @@ export class AuthService {
             // }
         );
 
-        return this.http.post(`${this.apiUrl}/auth/login`, request, httpOptions)
+        return this.http.post(`${this.apiUrl}/auth/login`, request)
             .pipe(
                 map((response: any) => {
                     const token: string = response['access_token'];
@@ -66,9 +57,8 @@ export class AuthService {
             );
     }
 
-    logout(): Observable<IUser> {
-        return this.http.post(`${this.apiUrl}/logout`,
-            httpOptions).pipe(
+    logout() {
+        return this.http.post(`${this.apiUrl}/auth/logout`, '').pipe(
                 tap(
                     () => {
                         localStorage.clear();
