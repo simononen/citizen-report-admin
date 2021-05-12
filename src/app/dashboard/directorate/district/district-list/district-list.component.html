@@ -20,7 +20,7 @@
       <table class="table-auto w-full text-left whitespace-no-wrap">
         <thead>
           <tr class="bg-gray-200 text-gray-600 uppercase">
-            <th class="px-4 py-3 title-font tracking-wider font-medium text-sm">#</th>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-sm">Code</th>
             <th class="px-4 py-3 title-font tracking-wider font-medium text-sm">Name</th>
             <th class="px-4 py-3 title-font tracking-wider font-medium text-sm">Region</th>
             <th class="px-4 py-3 title-font tracking-wider font-medium text-sm">Latitude</th>
@@ -30,7 +30,7 @@
         </thead>
         <tbody>
           <tr class="border-b border-gray-200 hover:bg-gray-100 font-thin" *ngFor="let district of districts?.data; let i = index;">
-            <td class="px-4 py-3">{{ i }}</td>
+            <td class="px-4 py-3">{{ district?.attributes?.dist_code }}</td>
             <td class="px-4 py-3 font-medium">{{ district?.attributes?.district_name | titlecase}}</td>
             <td class="px-4 py-3">{{ district?.attributes?.region | titlecase}}</td>
             <td class="px-4 py-3">{{ district?.attributes?.latitude }}</td>
