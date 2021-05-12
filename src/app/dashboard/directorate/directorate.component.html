@@ -1,4 +1,4 @@
-<div *ngIf='!isLoading'>
+<div *ngIf='directorateSummaries$ | async as directorateSummaries'>
   <section class="text-gray-600 body-font">
     <div class="container py-2 mx-auto">
       <div class="flex flex-wrap -m-4 text-center">
@@ -17,7 +17,7 @@
                 clip-rule="evenodd"
               ></path>
             </svg>
-            <h2 class="group-hover:text-gray-100 title-font font-medium text-3xl text-gray-900">135</h2>
+            <h2 class="group-hover:text-gray-100 title-font font-medium text-3xl text-gray-900">{{ directorateSummaries?.data?.attributes?.numberOfDistricts }}</h2>
             <p class="group-hover:text-gray-100 leading-relaxed">Districts</p>
           </div>
         </div>
@@ -35,8 +35,8 @@
                 clip-rule="evenodd"
               ></path>
             </svg>
-            <h2 class="group-hover:text-gray-100 title-font font-medium text-3xl text-gray-900">350</h2>
-            <p class="group-hover:text-gray-100 leading-relaxed">Sub Counties</p>
+            <h2 class="group-hover:text-gray-100 title-font font-medium text-3xl text-gray-900">{{ directorateSummaries?.data?.attributes?.numberOfCounties }}</h2>
+            <p class="group-hover:text-gray-100 leading-relaxed">Counties</p>
           </div>
         </div>
         <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
@@ -62,8 +62,8 @@
                 d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
               ></path>
             </svg>
-            <h2 class="group-hover:text-gray-100 title-font font-medium text-3xl text-gray-900">580</h2>
-            <p class="group-hover:text-gray-100 leading-relaxed">Parishes</p>
+            <h2 class="group-hover:text-gray-100 title-font font-medium text-3xl text-gray-900">{{ directorateSummaries?.data?.attributes?.numberOfSubCounties }}</h2>
+            <p class="group-hover:text-gray-100 leading-relaxed">Counties</p>
           </div>
         </div>
         <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
@@ -89,7 +89,7 @@
                 d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
               ></path>
             </svg>
-            <h2 class="group-hover:text-gray-100 title-font font-medium text-3xl text-gray-900">580</h2>
+            <h2 class="group-hover:text-gray-100 title-font font-medium text-3xl text-gray-900">{{ directorateSummaries?.data?.attributes?.numberOfParishes }}</h2>
             <p class="group-hover:text-gray-100 leading-relaxed">Parishes</p>
           </div>
         </div>
@@ -110,7 +110,7 @@
               ></path>
             </svg>
             <h2 class="group-hover:text-gray-100 title-font font-medium text-3xl text-gray-900">
-              1500
+              {{ directorateSummaries?.data?.attributes?.numberOfVillages }}
             </h2>
             <p class="group-hover:text-gray-100 leading-relaxed">Villages</p>
           </div>
@@ -119,7 +119,7 @@
           <div routerLink="/directorate/favourites" class="group hover:bg-yellow-500 hover:border-0 hover-shadow-lg hover:cursor-pointer border-2 border-gray-200 px-4 py-6 rounded-lg">
             <svg class="text-yellow-500 group-hover:text-gray-100 w-12 h-12 mb-3 inline-block" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path></svg>
             <h2 class="group-hover:text-gray-100 title-font font-medium text-3xl text-gray-900">
-              1500
+              {{ directorateSummaries?.data?.attributes?.numberOfFavouritePlaces }}
             </h2>
             <p class="group-hover:text-gray-100 leading-relaxed">Favourite Places</p>
           </div>
@@ -127,7 +127,7 @@
         <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
           <div routerLink="/directorate/leadership" class="group hover:bg-yellow-500 hover:border-0 hover-shadow-lg hover:cursor-pointer border-2 border-gray-200 px-4 py-6 rounded-lg">
             <svg class="text-yellow-500 group-hover:text-gray-100 w-12 h-12 mb-3 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-            <h2 class="group-hover:text-gray-100 title-font font-medium text-3xl text-gray-900">580</h2>
+            <h2 class="group-hover:text-gray-100 title-font font-medium text-3xl text-gray-900">0</h2>
             <p class="group-hover:text-gray-100 leading-relaxed">District Leaders</p>
           </div>
         </div>
@@ -135,7 +135,7 @@
           <div routerLink="/directorate/contact-information" class="group hover:bg-yellow-500 hover:border-0 hover-shadow-lg hover:cursor-pointer border-2 border-gray-200 px-4 py-6 rounded-lg">
             <svg class="text-yellow-500 group-hover:text-gray-100 w-12 h-12 mb-3 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
             <h2 class="group-hover:text-gray-100 title-font font-medium text-3xl text-gray-900">
-              1500
+              {{ directorateSummaries?.data?.attributes?.numberOfContacts }}
             </h2>
             <p class="group-hover:text-gray-100 leading-relaxed">Contact Information</p>
           </div>
@@ -145,4 +145,4 @@
   </section>
 </div>
 
-<app-dashboard-loader *ngIf="!isLoading"></app-dashboard-loader>
+<!-- <app-dashboard-loader *ngIf="!isLoading"></app-dashboard-loader> -->

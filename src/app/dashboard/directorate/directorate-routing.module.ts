@@ -9,6 +9,10 @@ const routes: Routes = [
     component: DirectorateComponent
   },
   {
+    path: 'directorate',
+    component: DirectorateComponent
+  },
+  {
     path: 'districts',
     loadChildren: () => import('./district/district.module').then(m => m.DistrictModule)
   },
