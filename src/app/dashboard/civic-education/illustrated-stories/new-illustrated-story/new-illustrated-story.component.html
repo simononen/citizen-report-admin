@@ -1,0 +1,67 @@
+<div class="flex flex-col">
+  <div class="">
+    <div class="flex my-4 text-2xl font-thin">
+      Add Favourite Place
+    </div>
+  </div>
+
+  <div class="flex justify-end">
+    <button class="border px-2 py-2 bg-gray-900 text-white rounded-md" [routerLink]="['/directorate/favourites']">Back</button>
+  </div>
+
+  <div>
+    <div class="flex flex-col md:ml-auto w-full mt-4">
+      <form [formGroup]="illustratedStoriesForm" (ngSubmit)="onSave(illustratedStoriesForm)" class="text-gray-900">
+        <div class="md:flex md:space-x-4 w-full py-1">
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title">
+            <mat-error *ngIf="title?.invalid">
+              <mat-error *ngIf="title?.errors?.required">Title
+                <strong>required</strong>
+              </mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="md:flex md:space-x-4 w-full py-1">
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>URL/Link</mat-label>
+            <input matInput formControlName="url" placeholder="For example https://www.imgsrc/image.png">
+            <mat-error *ngIf="url?.invalid">
+              <mat-error *ngIf="url?.errors?.required">Url Link
+                <strong>required</strong>
+              </mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="md:flex md:space-x-4 w-full py-1">
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" cols="30" rows="10"></textarea>
+          </mat-form-field>
+        </div>
+
+        <div class="md:flex md:space-x-4 w-full py-1">
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>tag</mat-label>
+            <input matInput formControlName="tag">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Author</mat-label>
+            <input matInput formControlName="author">
+          </mat-form-field>
+        </div>
+
+        <div class="flex space-x-2 mt-4">
+          <button type="button" class="text-gray-500 bg-white border border-gray-500 py-2 px-6 focus:outline-none hover:text-white hover:bg-gray-600 rounded text-lg">Cancel</button>
+          <button type="submit" class="text-white bg-gray-500 border-0 py-2 px-6 focus:outline-none hover:bg-gray-600 rounded text-lg">Save</button>
+        </div>
+      </form>
+
+    </div>
+
+
+  </div>
+</div>
