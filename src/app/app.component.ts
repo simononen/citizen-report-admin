@@ -10,14 +10,9 @@ export class AppComponent {
   title = 'citizen-report-admin';
 
   constructor(
-    public _authService: AuthService
   ) { }
 
   ngOnInit(): void {
-  }
-
-  logout() {
-    
   }
 
 }

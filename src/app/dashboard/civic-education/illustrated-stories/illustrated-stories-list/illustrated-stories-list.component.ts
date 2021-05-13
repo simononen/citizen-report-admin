@@ -20,7 +20,7 @@ export class IllustratedStoriesListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getIllustratedStories();
+    // this.getIllustratedStories();
   }
 
   getIllustratedStories() {

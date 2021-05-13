@@ -20,7 +20,7 @@ export class SubCountiesListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getSubcounties();
+    // this.getSubcounties();
   }
 
   getSubcounties() {

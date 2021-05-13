@@ -20,7 +20,7 @@ export class LeadershipListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getLeaderships();
+    // this.getLeaderships();
   }
 
   getLeaderships() {

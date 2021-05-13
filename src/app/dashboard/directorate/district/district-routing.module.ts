@@ -8,6 +8,7 @@ import { NgModule } from '@angular/core';
 
 const routes: Routes = [
   { path: '', component: DistrictListComponent },
+  { path: 'districts', component: DistrictListComponent },
   { path: 'district-lists', component: DistrictListComponent },
   { path: 'new-district', component: NewDistrictComponent },
   { path: 'edit-district', component: EditDistrictComponent },

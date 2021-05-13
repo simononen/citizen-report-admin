@@ -20,7 +20,7 @@ export class FavouritesListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getFavourites();
+    // this.getFavourites();
   }
 
   getFavourites() {

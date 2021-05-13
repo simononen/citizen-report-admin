@@ -6,9 +6,11 @@ import { DistrictDetailComponent } from './district-detail/district-detail.compo
 import { DistrictListComponent } from './district-list/district-list.component';
 import { DistrictRoutingModule } from './district-routing.module';
 import { EditDistrictComponent } from './edit-district/edit-district.component';
+import { ListLoaderComponent } from "src/app/shared/list-loader/list-loader.component";
 import { MaterialModule } from '../../../shared/material/material.module';
 import { NewDistrictComponent } from './new-district/new-district.component';
 import { NgModule } from '@angular/core';
+import { SharedModule } from "src/app/shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { NgModule } from '@angular/core';
     DistrictRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule
   ]
 })
 export class DistrictModule { }

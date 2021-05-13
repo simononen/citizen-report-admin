@@ -20,7 +20,7 @@ export class ContactInformationListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getContactInformation();
+    // this.getContactInformation();
   }
 
   getContactInformation() {

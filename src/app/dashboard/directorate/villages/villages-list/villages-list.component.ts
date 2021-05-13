@@ -20,7 +20,7 @@ export class VillagesListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getVillages();
+    // this.getVillages();
   }
 
   getVillages() {

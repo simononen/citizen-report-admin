@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { DashboardLoaderComponent } from 'src/app/shared/dashboard-loader/dashboard-loader.component';
 import { DirectorateComponent } from './directorate.component';
 import { DirectorateRoutingModule } from './directorate-routing.module';
 import { DistrictModule } from './district/district.module';
@@ -12,8 +13,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     DirectorateRoutingModule,
     DistrictModule,
-    FavouritesModule,
-    SharedModule
+    FavouritesModule
   ]
 })
 export class DirectorateModule { }

@@ -20,7 +20,7 @@ export class GovernanceStatsListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getGovernanceStats();
+    // this.getGovernanceStats();
   }
 
   getGovernanceStats() {
