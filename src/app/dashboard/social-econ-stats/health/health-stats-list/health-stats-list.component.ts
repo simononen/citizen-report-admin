@@ -20,7 +20,7 @@ export class HealthStatsListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getHealthStats();
+    // this.getHealthStats();
   }
 
   getHealthStats() {

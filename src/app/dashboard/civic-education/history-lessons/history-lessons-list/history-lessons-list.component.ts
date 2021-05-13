@@ -20,7 +20,7 @@ export class HistoryLessonsListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getHistoryLessons();
+    // this.getHistoryLessons();
   }
 
   getHistoryLessons() {

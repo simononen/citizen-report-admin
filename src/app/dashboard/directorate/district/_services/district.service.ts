@@ -1,4 +1,4 @@
-import { IDistrict, IDistricts, } from 'src/app/shared/interfaces/district/IDistrict';
+import { IDistrict, IDistrictPostData, IDistricts, } from 'src/app/shared/interfaces/district/IDistrict';
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -24,8 +24,11 @@ export class DistrictService {
     );
   }
 
-  post() {
-    return;
+  addDistrict(district: IDistrictPostData): Observable<IDistrictPostData> {
+    return this.http.post<IDistrictPostData>(`${this.apiUrl}/v1/districts`, district)
+    .pipe(
+      // catchError(this.handleError('addHero', hero))
+    );
   }
 
   update() {
@@ -36,8 +39,12 @@ export class DistrictService {
     return;
   }
 
-  delete() {
-    return;
+
+  deleteDistrict(id: number | string): Observable<{}> {
+    return this.http.delete(`${this.apiUrl}/v1/districts/${id}`)
+      .pipe(
+        // catchError(this.handleError('deleteHero'))
+      );
   }
 
 }

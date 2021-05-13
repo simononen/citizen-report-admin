@@ -22,7 +22,7 @@ export class ParishesListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getParishes();
+    // this.getParishes();
   }
 
   getParishes() {

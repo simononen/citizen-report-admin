@@ -10,7 +10,11 @@ export interface IDistricts  {
   links: ILink
 }
 
-interface IDistrictData {
+export interface IDistrictPostData {
+  data: IDistrictData
+}
+
+export interface IDistrictData {
   type?: string,
   attributes: IDistrictAttributes
 }

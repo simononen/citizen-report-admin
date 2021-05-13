@@ -49,6 +49,17 @@ export class DistrictListComponent implements OnInit {
     });
   }
 
+  searchDistricts(query: FormGroup) {
+    let searchQuery = query.controls.searchQuery.value;
+    let searchUrl = `${this.apiUrl}/v1/districts?district=${searchQuery}`;
+    this.getAllDistricts(searchUrl);
+  }
+
+  clearSearch(): void {
+    this.getAllDistricts('');
+    this.searchQuery?.setValue(null);
+  }
+
   getAllDistricts(url: string) {
     this.isLoading = true;
     this.districts$ = this._districtService.getAllDistricts(url).pipe(
@@ -73,21 +84,24 @@ export class DistrictListComponent implements OnInit {
         console.log(this.errorMessage);
         return of(null);
       }));
+  }
+  deleteDistrict(id: number | string) {
+    this._districtService.deleteDistrict(id).subscribe(
+      (res) => {
+        Swal.fire(
+          'Deleted!',
+          'The district record has been deleted.',
+          'success'
+        );
+        this.getAllDistricts('');
+      },
+      (err) => {
 
+      }
+    );
   }
 
-  searchDistricts(query: FormGroup) {
-    let searchQuery = query.controls.searchQuery.value;
-    let searchUrl = `${this.apiUrl}/v1/districts?district=${searchQuery}`;
-    this.getAllDistricts(searchUrl);
-  }
-
-  clearSearch(): void {
-    this.getAllDistricts('');
-    this.searchQuery?.setValue(null);
-  }
-
-  confirmDelete() {
+  confirmDelete(id: number | string) {
     Swal.fire({
       title: 'Are you sure want to delete?',
       text: 'You will not be able to recover this district record',
@@ -97,11 +111,7 @@ export class DistrictListComponent implements OnInit {
       cancelButtonText: 'No, Cancel'
     }).then((result: any) => {
       if (result.value) {
-        Swal.fire(
-          'Deleted!',
-          'The district record has been deleted.',
-          'success'
-        )
+        this.deleteDistrict(id);
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire(
           'Cancelled',
