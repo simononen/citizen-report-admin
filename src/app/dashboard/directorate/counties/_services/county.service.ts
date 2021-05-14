@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
+import { ICounty } from 'src/app/shared/interfaces/county/County';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,23 +16,40 @@ export class CountyService {
     private http: HttpClient
   ) { }
 
-  get() {
-    return this.http.get(this.apiUrl);
+
+  getAllCounties(url=''): Observable<ICounty[] | any> {
+    return this.http.get<ICounty[]>(url ? url : `${this.apiUrl}/v1/counties`).pipe(
+      tap(data => data),
+      // catchError(this.handleError)
+    );
   }
 
-  post() {
-    return;
+  addCounty(county: ICounty): Observable<ICounty> {
+    return this.http.post<ICounty>(`${this.apiUrl}/v1/counties`, county)
+    .pipe(
+      // catchError(this.handleError('addCounty', ICountyPostData))
+    );
   }
 
-  update() {
-    return;
+  updateCounty(id: number | string, county: ICounty): Observable<ICounty> {
+    return this.http.patch<ICounty>(`${this.apiUrl}/v1/counties/${id}`, county)
+    .pipe(
+      // catchError(this.handleError('updateCounty', ICountyPostData))
+    );
   }
 
-  show() {
-    return;
+  getCountyById(id: number | string): Observable<ICounty>{
+    return this.http.get<ICounty>(`${this.apiUrl}/v1/counties/${id}`).pipe(
+      tap(data => data)
+      // catchError(this.handleError)
+    );
   }
 
-  delete() {
-    return;
+
+  deleteCounty(id: number | string): Observable<{}> {
+    return this.http.delete(`${this.apiUrl}/v1/counties/${id}`)
+      .pipe(
+        // catchError(this.handleError('deleteCounty'))
+      );
   }
 }

@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IDistrict, IDistricts, IMeta } from 'src/app/shared/interfaces/district/IDistrict';
+import { IDistrict, IDistricts } from 'src/app/shared/interfaces/district/IDistrict';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
 import { DistrictService } from '../_services/district.service';
-import { ILink } from '../../../../shared/interfaces/district/IDistrict';
+import { ILink } from 'src/app/shared/interfaces/link/link';
+import { IMeta } from 'src/app/shared/interfaces/meta/meta';
 import Swal from 'sweetalert2'
 import { environment } from 'src/environments/environment';
 
@@ -39,7 +40,7 @@ export class DistrictListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getAllDistricts('');
+    this.getAllDistricts('', '');
     this.setUpDistrictSearchForm();
   }
 
@@ -52,17 +53,17 @@ export class DistrictListComponent implements OnInit {
   searchDistricts(query: FormGroup) {
     let searchQuery = query.controls.searchQuery.value;
     let searchUrl = `${this.apiUrl}/v1/districts?district=${searchQuery}`;
-    this.getAllDistricts(searchUrl);
+    this.getAllDistricts('', query.controls.searchQuery.value);
   }
 
   clearSearch(): void {
-    this.getAllDistricts('');
+    this.getAllDistricts('', '');
     this.searchQuery?.setValue(null);
   }
 
-  getAllDistricts(url: string) {
+  getAllDistricts(url: string, queryAll: string) {
     this.isLoading = true;
-    this.districts$ = this._districtService.getAllDistricts(url).pipe(
+    this.districts$ = this._districtService.getAllDistricts(url, '').pipe(
       tap(
         data => {
           this.isLoading = false;
@@ -93,7 +94,7 @@ export class DistrictListComponent implements OnInit {
           'The district record has been deleted.',
           'success'
         );
-        this.getAllDistricts('');
+        this.getAllDistricts('', '');
       },
       (err) => {
 

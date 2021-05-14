@@ -15,6 +15,7 @@ import { NgModule } from '@angular/core';
 import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 import { NotFoundComponentComponent } from './shared/not-found-component/not-found-component.component';
 import { SharedModule } from "./shared/shared.module";
+import { TitleCasePipe } from "@angular/common";
 import { ToastrModule } from "ngx-toastr";
 
 @NgModule({
@@ -39,7 +40,8 @@ import { ToastrModule } from "ngx-toastr";
       provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorService,
       multi: true
-    }
+    },
+    TitleCasePipe
   ],
   bootstrap: [AppComponent]
 })

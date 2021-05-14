@@ -55,7 +55,7 @@
               <td class="px-4 py-3">{{ district?.attributes?.longitude }}</td>
               <td class="px-4 py-3">
                 <div class="flex space-x-4">
-                  <svg class="w-4 h-4 transform hover:text-yellow-500 hover:scale-110 hover:cursor-pointer" [routerLink]="['edit-district']" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                  <svg class="w-4 h-4 transform hover:text-yellow-500 hover:scale-110 hover:cursor-pointer" [routerLink]="['edit-district', district?.id | encrypt]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
                   <svg class="w-4 h-4 transform hover:text-yellow-500 hover:scale-110 hover:cursor-pointer" (click)="confirmDelete(district?.id)" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                 </div>
               </td>
@@ -70,13 +70,13 @@
   </section>
 
   <div class="flex mb-4" *ngIf="!isLoading">
-    <a (click)="getAllDistricts(previousPageNavigation)" *ngIf="previousPageNavigation" class="border border-gray-500 select-none cursor-pointer bg-gray-500 hover:bg-gray-900 text-white rounded-sm font-bold py-2 px-2 flex items-center">
+    <a (click)="getAllDistricts(previousPageNavigation, '')" *ngIf="previousPageNavigation" class="border border-gray-500 select-none cursor-pointer bg-gray-500 hover:bg-gray-900 text-white rounded-sm font-bold py-2 px-2 flex items-center">
         <svg class="h-2 w-5 mr-2 fill-current" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-49 141 512 512" style="enable-background:new -49 141 512 512;" xml:space="preserve">
             <path id="XMLID_10_" d="M438,372H36.355l72.822-72.822c9.763-9.763,9.763-25.592,0-35.355c-9.763-9.764-25.593-9.762-35.355,0 l-115.5,115.5C-46.366,384.01-49,390.369-49,397s2.634,12.989,7.322,17.678l115.5,115.5c9.763,9.762,25.593,9.763,35.355,0 c9.763-9.763,9.763-25.592,0-35.355L36.355,422H438c13.808,0,25-11.193,25-25S451.808,372,438,372z"></path>
         </svg>
         Previous page
     </a>
-    <a (click)="getAllDistricts(nextPageNavigation)" *ngIf="nextPageNavigation" class="border border-gray-500 select-none cursor-pointer bg-gray-500 hover:bg-gray-900 text-white rounded-sm font-bold py-2 px-2 ml-2 flex items-center">
+    <a (click)="getAllDistricts(nextPageNavigation, '')" *ngIf="nextPageNavigation" class="border border-gray-500 select-none cursor-pointer bg-gray-500 hover:bg-gray-900 text-white rounded-sm font-bold py-2 px-2 ml-2 flex items-center">
         Next page
         <svg class="h-2 w-5 ml-2 fill-current" clasversion="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
              viewBox="-49 141 512 512" style="enable-background:new -49 141 512 512;" xml:space="preserve">

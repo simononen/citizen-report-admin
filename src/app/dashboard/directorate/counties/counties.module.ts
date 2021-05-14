@@ -8,6 +8,7 @@ import { EditCountyComponent } from './edit-county/edit-county.component';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { NewCountyComponent } from './new-county/new-county.component';
 import { NgModule } from '@angular/core';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NgModule } from '@angular/core';
     CountiesRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule,
   ]
 })
 export class CountiesModule { }

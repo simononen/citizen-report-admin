@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: '', component: CountiesListComponent },
   { path: 'counties-list', component: CountiesListComponent },
   { path: 'new-county', component: NewCountyComponent },
-  { path: 'edit-county', component: EditCountyComponent },
+  { path: 'edit-county/:id', component: EditCountyComponent },
 ];
 
 @NgModule({
