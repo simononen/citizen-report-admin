@@ -72,7 +72,7 @@ export class NewCountyComponent implements OnInit {
     return this.districtList.filter(option => option.district_name.toLowerCase().indexOf(name.toLowerCase()) === 0);
   }
 
-  onSaveDistrict(form: FormGroup) {
+  onSaveCounty(form: FormGroup) {
     this.isLoading = true;
 
     let countyData = {
@@ -98,10 +98,10 @@ export class NewCountyComponent implements OnInit {
         this.countyForm.reset();
       },
       (error) => {
+        this.isLoading = false;
 
       }
     );
-
   }
 
   getDistrictDetails(districtDetails: string) {

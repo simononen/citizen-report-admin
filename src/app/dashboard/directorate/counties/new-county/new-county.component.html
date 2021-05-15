@@ -11,7 +11,7 @@
 
   <div>
     <div class="flex flex-col md:ml-auto w-full mt-4" *ngIf="!isLoading">
-      <form [formGroup]="countyForm" (ngSubmit)="onSaveDistrict(countyForm)" class="text-gray-900">
+      <form [formGroup]="countyForm" (ngSubmit)="onSaveCounty(countyForm)" class="text-gray-900">
         <div class="md:flex md:space-x-4 w-full py-1">
           <mat-form-field appearance="outline" class="w-full">
             <mat-label>Select District</mat-label>
