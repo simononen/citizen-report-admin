@@ -80,7 +80,6 @@ export class CountiesListComponent implements OnInit {
       catchError(error => {
         this.isLoading = false;
         this.errorMessage = error;
-        console.log(this.errorMessage);
         return of(null);
       })
     );

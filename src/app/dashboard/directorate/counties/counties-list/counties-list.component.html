@@ -9,7 +9,7 @@
     <mat-form-field appearance="outline">
       <mat-label>Search Counties</mat-label>
       <input matInput type="text" formControlName="searchQuery" placeholder="Search District">
-      <button mat-button mat-icon-button matSuffix (click)="clearSearch()" *ngIf="searchQuery?.dirty && !searchQuery?.errors?.required">
+      <button type="button" mat-button mat-icon-button matSuffix (click)="clearSearch()" *ngIf="searchQuery?.dirty && !searchQuery?.errors?.required">
         <mat-icon>close</mat-icon>
       </button>
       <mat-error *ngIf="searchQuery?.invalid">

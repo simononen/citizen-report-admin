@@ -5,6 +5,7 @@ import { EditVillageComponent } from './edit-village/edit-village.component';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { NewVillageComponent } from './new-village/new-village.component';
 import { NgModule } from '@angular/core';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { VillagesComponent } from './villages.component';
 import { VillagesListComponent } from './villages-list/villages-list.component';
 import { VillagesRoutingModule } from './villages-routing.module';
@@ -21,7 +22,8 @@ import { VillagesRoutingModule } from './villages-routing.module';
     VillagesRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule,
   ]
 })
 export class VillagesModule { }
