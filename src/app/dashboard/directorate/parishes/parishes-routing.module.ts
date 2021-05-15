@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: '', component: ParishesListComponent },
   { path: 'parishes-list', component: ParishesListComponent},
   { path: 'new-parish', component: NewParishComponent },
-  { path: 'edit-parish', component: EditParishComponent },
+  { path: 'edit-parish/:id', component: EditParishComponent },
 ];
 
 @NgModule({

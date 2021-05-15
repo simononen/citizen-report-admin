@@ -6,7 +6,7 @@
   </div>
 
   <div class="flex justify-end">
-    <button class="border px-2 py-2 bg-gray-900 text-white rounded-md" [routerLink]="['/directorate/counties']">Back</button>
+    <button class="border px-2 py-2 bg-gray-900 text-white rounded-md" [routerLink]="['/directorate/parishes']">Back</button>
   </div>
 
   <div>
@@ -45,6 +45,7 @@
           </mat-error>
           </mat-form-field>
         </div>
+        
         <div class="flex space-x-4">
           <button class="focus:outline-none text-yellow-600 text-sm py-2.5 px-5 rounded-md border border-yellow-600 hover:bg-yellow-50" type="button" [routerLink]="['/directorate/parishes']">Cancel</button>
           <button type="submit" [disabled]="parishForm.invalid" [ngClass]="parishForm.invalid ? 'focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-yellow-300 cursor-not-allowed' : 'focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-yellow-500 hover:bg-yellow-700 hover:shadow-lg transition-colors'" class="">
