@@ -104,8 +104,24 @@ export class ParishesListComponent implements OnInit {
     );
   }
 
+  deleteParish(id: number | string) {
+    this._parishService.deleteParish(id).subscribe(
+      (res) => {
+        Swal.fire(
+          'Deleted!',
+          'The parish record has been deleted.',
+          'success'
+        );
+        this.getParishes('');
+      },
+      (err) => {
 
-  confirmDelete() {
+      }
+    );
+  }
+
+
+  confirmDelete(id: string | number) {
     Swal.fire({
       title: 'Are you sure want to delete?',
       text: 'You will not be able to recover this Parish record',
@@ -115,11 +131,7 @@ export class ParishesListComponent implements OnInit {
       cancelButtonText: 'No, Cancel'
     }).then((result: any) => {
       if (result.value) {
-        Swal.fire(
-          'Deleted!',
-          'The parish record has been deleted.',
-          'success'
-        )
+        this.deleteParish(id);
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire(
           'Cancelled',
