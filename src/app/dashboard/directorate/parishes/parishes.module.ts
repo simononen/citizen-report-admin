@@ -1,13 +1,14 @@
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
+import { EditParishComponent } from './edit-parish/edit-parish.component';
 import { MaterialModule } from 'src/app/shared/material/material.module';
+import { NewParishComponent } from './new-parish/new-parish.component';
 import { NgModule } from '@angular/core';
 import { ParishesComponent } from './parishes.component';
-import { ParishesRoutingModule } from './parishes-routing.module';
 import { ParishesListComponent } from './parishes-list/parishes-list.component';
-import { NewParishComponent } from './new-parish/new-parish.component';
-import { EditParishComponent } from './edit-parish/edit-parish.component';
+import { ParishesRoutingModule } from './parishes-routing.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { EditParishComponent } from './edit-parish/edit-parish.component';
     ParishesRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule,
   ]
 })
 export class ParishesModule { }
