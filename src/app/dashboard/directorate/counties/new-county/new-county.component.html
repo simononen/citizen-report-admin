@@ -45,8 +45,9 @@
           </mat-error>
           </mat-form-field>
         </div>
+
         <div class="flex space-x-4">
-          <button class="focus:outline-none text-yellow-600 text-sm py-2.5 px-5 rounded-md border border-yellow-600 hover:bg-yellow-50" type="button" [routerLink]="['/directorate/districts']">Cancel</button>
+          <button class="focus:outline-none text-yellow-600 text-sm py-2.5 px-5 rounded-md border border-yellow-600 hover:bg-yellow-50" type="button" [routerLink]="['/directorate/counties']">Cancel</button>
           <button type="submit" [disabled]="countyForm.invalid" [ngClass]="countyForm.invalid ? 'focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-yellow-300 cursor-not-allowed' : 'focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-yellow-500 hover:bg-yellow-700 hover:shadow-lg transition-colors'" class="">
             <span *ngIf="isLoading">
               <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -62,6 +63,7 @@
             </span>
           </button>
         </div>
+
       </form>
 
     </div>

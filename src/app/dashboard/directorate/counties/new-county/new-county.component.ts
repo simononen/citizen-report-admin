@@ -44,10 +44,10 @@ export class NewCountyComponent implements OnInit {
       (res) => {
         this.isLoading = false;
         this.districtList = res;
-        console.log('District lists ', this.districtList);
         this.setUpCountyForm();
       },
       (error) => {
+        this.isLoading = false;
 
       }
     )

@@ -54,7 +54,7 @@ export class VillagesListComponent implements OnInit {
 
   searchVillages(query: FormGroup) {
     let searchQuery = query.controls.searchQuery.value;
-    let searchUrl = `${this.apiUrl}/v1/villages?county=${searchQuery}`;
+    let searchUrl = `${this.apiUrl}/v1/villages?village=${searchQuery}`;
     this.getVillages(searchUrl);
   }
 
@@ -87,8 +87,8 @@ export class VillagesListComponent implements OnInit {
     );
   }
 
-  deleteCounty(id: number | string) {
-    this._villageService.deleteCounty(id).subscribe(
+  deleteVillage(id: number | string) {
+    this._villageService.deleteVillage(id).subscribe(
       (res) => {
         Swal.fire(
           'Deleted!',
@@ -113,7 +113,7 @@ export class VillagesListComponent implements OnInit {
       cancelButtonText: 'No, Cancel'
     }).then((result: any) => {
       if (result.value) {
-        this.deleteCounty(id);
+        this.deleteVillage(id);
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire(
           'Cancelled',
