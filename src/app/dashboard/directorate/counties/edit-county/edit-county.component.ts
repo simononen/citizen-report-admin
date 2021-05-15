@@ -54,7 +54,6 @@ export class EditCountyComponent implements OnInit {
       (res) => {
         this.isLoading = false;
         this.districtList = res;
-        // this.setUpCountyForm();
       },
       (error) => {
 
@@ -96,7 +95,7 @@ export class EditCountyComponent implements OnInit {
     )
   }
 
-  onSaveDistrict(form: FormGroup) {
+  onSaveCounty(form: FormGroup) {
     this.isLoading = true;
 
     let countyData = {

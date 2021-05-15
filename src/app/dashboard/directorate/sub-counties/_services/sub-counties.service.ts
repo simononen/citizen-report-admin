@@ -31,7 +31,7 @@ export class SubSubcountiesService {
   }
 
   updateSubcounty(id: number | string, county: ISubcounty): Observable<ISubcounty> {
-    return this.http.patch<ISubcounty>(`${this.apiUrl}/v1/sub-counties/${id}`, county)
+    return this.http.put<ISubcounty>(`${this.apiUrl}/v1/sub-counties/${id}`, county)
     .pipe(
       // catchError(this.handleError('updateSubcounty', ISubcountyPostData))
     );
