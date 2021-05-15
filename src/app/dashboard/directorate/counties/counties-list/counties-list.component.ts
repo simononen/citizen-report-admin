@@ -17,9 +17,8 @@ import { environment } from 'src/environments/environment';
 })
 export class CountiesListComponent implements OnInit {
 
-  counties!: ICounty[];
-
   apiUrl = environment.apiUrl
+  counties!: ICounty[];
 
   isLoading!: Boolean;
   errorMessage: string = '';
@@ -85,8 +84,6 @@ export class CountiesListComponent implements OnInit {
         return of(null);
       })
     );
-
-    console.log('Response ', this.counties$);
   }
 
   deleteCounty(id: number | string) {

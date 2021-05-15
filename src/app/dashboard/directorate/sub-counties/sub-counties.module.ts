@@ -5,6 +5,7 @@ import { EditSubCountyComponent } from './edit-sub-county/edit-sub-county.compon
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { NewSubCountyComponent } from './new-sub-county/new-sub-county.component';
 import { NgModule } from '@angular/core';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { SubCountiesComponent } from './sub-counties.component';
 import { SubCountiesListComponent } from './sub-counties-list/sub-counties-list.component';
 import { SubCountiesRoutingModule } from './sub-counties-routing.module';
@@ -21,7 +22,8 @@ import { SubCountiesRoutingModule } from './sub-counties-routing.module';
     SubCountiesRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule,
   ]
 })
 export class SubCountiesModule { }

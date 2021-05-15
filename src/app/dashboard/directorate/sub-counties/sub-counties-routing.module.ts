@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: '', component: SubCountiesListComponent },
   { path: 'subcounty-lists', component: SubCountiesListComponent },
   { path: 'new-subcounty', component: NewSubCountyComponent },
-  { path: 'edit-subcounty', component: EditSubCountyComponent },
+  { path: 'edit-subcounty/:id', component: EditSubCountyComponent },
 ];
 
 @NgModule({
