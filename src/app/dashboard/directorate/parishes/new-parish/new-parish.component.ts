@@ -69,6 +69,10 @@ export class NewParishComponent implements OnInit {
     return this.districtList.filter(option => option.district_name.toLowerCase().indexOf(name.toLowerCase()) === 0);
   }
 
+  clearSearch() {
+    this.district?.setValue(null);
+  }
+
   onSaveParish(form: FormGroup) {
 
     this.isLoading = true;

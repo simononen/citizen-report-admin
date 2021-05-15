@@ -131,6 +131,10 @@ export class EditParishComponent implements OnInit {
     return state ? state.district_name : '';
   }
 
+  clearSearch() {
+    this.district?.setValue(null);
+  }
+
   get parishName() {
     return this.parishForm.get('parish_name');
   }
