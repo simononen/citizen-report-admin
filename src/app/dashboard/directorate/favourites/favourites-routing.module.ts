@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: '', component: FavouritesListComponent },
   { path: 'favourites-list', component: FavouritesListComponent},
   { path: 'new-favourite', component: NewFavouritesComponent },
-  { path: 'edit-favourite', component: EditFavouritesComponent },
+  { path: 'edit-favourite/:id', component: EditFavouritesComponent },
 ];
 
 @NgModule({
