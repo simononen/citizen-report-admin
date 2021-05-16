@@ -8,6 +8,7 @@ import { FavouritesRoutingModule } from './favourites-routing.module';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { NewFavouritesComponent } from './new-favourites/new-favourites.component';
 import { NgModule } from '@angular/core';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NgModule } from '@angular/core';
     FavouritesRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule,
   ]
 })
 export class FavouritesModule { }

@@ -14,6 +14,6 @@ import { NgModule } from '@angular/core';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-  ]
+  ],
 })
 export class AuthModule { }

@@ -8,12 +8,12 @@
   <form class="flex space-x-2 items-center" [formGroup]="villageSearchForm" (ngSubmit)="searchVillages(villageSearchForm)">
     <mat-form-field appearance="outline">
       <mat-label>Search Villages</mat-label>
-      <input matInput type="text" formControlName="searchQuery" placeholder="Search District">
+      <input matInput type="text" formControlName="searchQuery" placeholder="Search Village">
       <button type="button" mat-button mat-icon-button matSuffix (click)="clearSearch()" *ngIf="searchQuery?.dirty && !searchQuery?.errors?.required">
         <mat-icon>close</mat-icon>
       </button>
       <mat-error *ngIf="searchQuery?.invalid">
-        <mat-error *ngIf="searchQuery?.errors?.required">village name is
+        <mat-error *ngIf="searchQuery?.errors?.required">Village name is
           <strong>required</strong>
         </mat-error>
         <mat-error *ngIf="searchQuery?.errors?.minLength">More than <strong>3</strong> characters

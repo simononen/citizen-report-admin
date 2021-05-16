@@ -41,7 +41,6 @@ import { ToastrModule } from "ngx-toastr";
       useClass: HttpInterceptorService,
       multi: true
     },
-    TitleCasePipe
   ],
   bootstrap: [AppComponent]
 })

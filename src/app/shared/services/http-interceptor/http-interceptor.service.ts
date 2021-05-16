@@ -27,7 +27,8 @@ export class HttpInterceptorService implements HttpInterceptor {
       const authToken = this.auth.getToken();
       if (authToken) {
         const authReq = req.clone({
-            headers: req.headers.set('Authorization', `Bearer ${authToken}`)
+            headers: req.headers
+              .set('Authorization', `Bearer ${authToken}`)
               .set('Accept', 'application/vnd.api+json')
               .set('Content-Type', 'application/vnd.api+json')
         });
@@ -36,7 +37,6 @@ export class HttpInterceptorService implements HttpInterceptor {
                   tap((event: HttpEvent<any>) => {
                     if (event instanceof HttpResponse) {
                       // Response with HttpResponse type
-                      // console.log('TAP function', event);
                     }
                   }, (err: any) => {
                     console.log(err);
@@ -49,8 +49,14 @@ export class HttpInterceptorService implements HttpInterceptor {
                     }
                   })
                 );
-              } else {
-                return next.handle(req);
+              }
+              else {
+                const unauthReq = req.clone({
+                  headers: req.headers
+                    .set('Accept', 'application/vnd.api+json')
+                    .set('Content-Type', 'application/vnd.api+json')
+                })
+                return next.handle(unauthReq);
               }
         }
 }

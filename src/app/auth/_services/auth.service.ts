@@ -17,7 +17,7 @@ export class AuthService {
     public currentUser: IUser = {};
     private handleError: HandleError;
 
-    private readonly apiUrl = environment.apiUrl;
+    private apiUrl = environment.apiUrl;
 
     private passwordResetLinkUrl = `${this.apiUrl}/reset-password-link`;
     private passwordReset = `${this.apiUrl}/reset-password`;
@@ -32,18 +32,29 @@ export class AuthService {
 
     login(userData: IJsonAPILogin): Observable<any[] | IUser> {
 
+      console.log('Login');
+
+        let headers = new HttpHeaders();
+        headers.set('Accept', 'application/vnd.api+json');
+        headers.set('Content-Type', 'application/json');
+
+        let options = { headers: headers };
+
         const request = JSON.stringify(
-            {
-              email: userData.data.attributes.email,
-              password: userData.data.attributes.password
-            }
             // {
-            //   "email": "admin@citizenreport.com",
-            //   "password": "fEStrado"
+            //   email: userData.data.attributes.email,
+            //   password: userData.data.attributes.password
             // }
+            {
+              "email": "admin@citizenreport.com",
+              "password": "fEStrado"
+            }
         );
 
-        return this.http.post(`${this.apiUrl}/auth/login`, request)
+        return this.http.post(`${this.apiUrl}/auth/login`, {
+          "email": "admin@citizenreport.com",
+          "password": "fEStrado"
+        }, options)
             .pipe(
                 map((response: any) => {
                     const token: string = response['access_token'];
