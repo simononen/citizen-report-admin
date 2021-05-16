@@ -8,6 +8,7 @@ import { LeadershipRoutingModule } from './leadership-routing.module';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { NewLeadershipComponent } from './new-leadership/new-leadership.component';
 import { NgModule } from '@angular/core';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NgModule } from '@angular/core';
     LeadershipRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule,
   ]
 })
 export class LeadershipModule { }

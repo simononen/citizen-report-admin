@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: '', component: LeadershipListComponent },
   { path: 'leadership-list', component: LeadershipListComponent},
   { path: 'new-leadership', component: NewLeadershipComponent },
-  { path: 'edit-leadership', component: EditLeadershipComponent },
+  { path: 'edit-leadership/:id', component: EditLeadershipComponent },
 ];
 
 @NgModule({
