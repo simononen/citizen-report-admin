@@ -15,5 +15,6 @@ export interface IDirectorateAttributes {
   'numberOfParishes': number,
   'numberOfVillages': number,
   'numberOfFavouritePlaces': number,
+  'numberOfLeaders': number,
   'numberOfContacts': number
 }

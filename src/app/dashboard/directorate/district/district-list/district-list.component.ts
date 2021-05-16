@@ -53,7 +53,7 @@ export class DistrictListComponent implements OnInit {
   searchDistricts(query: FormGroup) {
     let searchQuery = query.controls.searchQuery.value;
     let searchUrl = `${this.apiUrl}/v1/districts?district=${searchQuery}`;
-    this.getAllDistricts('', query.controls.searchQuery.value);
+    this.getAllDistricts(searchUrl, '');
   }
 
   clearSearch(): void {
