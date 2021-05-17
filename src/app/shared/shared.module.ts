@@ -4,12 +4,11 @@ import { EncryptPipe } from './pipes/encrypt/encrypt.pipe';
 import { ListLoaderComponent } from './list-loader/list-loader.component';
 import { NgModule } from '@angular/core';
 import { NgxContentLoadingModule } from 'ngx-content-loading';
-
 @NgModule({
   declarations: [
     DashboardLoaderComponent,
     ListLoaderComponent,
-    EncryptPipe
+    EncryptPipe,
   ],
   imports: [
     CommonModule,

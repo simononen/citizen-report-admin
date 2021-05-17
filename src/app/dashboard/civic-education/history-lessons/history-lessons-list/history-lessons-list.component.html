@@ -40,15 +40,19 @@
             <th class="px-4 py-3 title-font tracking-wider font-medium text-sm">Title</th>
             <th class="px-4 py-3 title-font tracking-wider font-medium text-sm">Description</th>
             <th class="px-4 py-3 title-font tracking-wider font-medium text-sm">Author</th>
+            <th class="px-4 py-3 title-font tracking-wider font-medium text-sm">Showcase</th>
             <th class="px-4 py-3 title-font tracking-wider font-medium text-sm">Actions</th>
           </tr>
         </thead>
         <tbody>
           <tr class="border-b border-gray-200 hover:bg-gray-100 font-thin" *ngFor="let historyLesson of historyLessons?.data">
-            <td class="px-4 py-3">{{ historyLesson?.attributes?.title }}</td>
-            <td class="px-4 py-3 font-medium">{{ historyLesson?.attributes?.description }}</td>
-            <td class="px-4 py-3">{{ historyLesson?.attributes?.link }}</td>
-            <td class="px-4 py-3">{{ historyLesson?.attributes?.content }}</td>
+            <td class="px-4 py-3">{{ historyLesson?.id }}</td>
+            <td class="px-4 py-3 font-medium">{{ historyLesson?.attributes?.title }}</td>
+            <td class="px-4 py-3" [innerHTML]="historyLesson?.attributes?.description"></td>
+            <td class="px-4 py-3">{{ historyLesson?.attributes?.author }}</td>
+            <td class="px-4 py-3">
+              <mat-slide-toggle></mat-slide-toggle>
+            </td>
             <td class="px-4 py-3">
               <div class="flex space-x-4">
                 <svg class="w-4 h-4 transform hover:text-yellow-500 hover:scale-110 hover:cursor-pointer" [routerLink]="['edit-history-lesson', historyLesson?.id | encrypt]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
