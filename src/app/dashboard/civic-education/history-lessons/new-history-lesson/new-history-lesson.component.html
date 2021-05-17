@@ -1,7 +1,7 @@
 <div class="flex flex-col">
   <div class="">
     <div class="flex my-4 text-2xl font-thin">
-      Add Favourite Place
+      Add History Lesson
     </div>
   </div>
 
@@ -33,6 +33,18 @@
 
         <div class="md:flex md:space-x-4 w-full py-1">
           <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Link</mat-label>
+            <input matInput formControlName="link">
+            <!-- <mat-error *ngIf="title?.invalid">
+              <mat-error *ngIf="title?.errors?.required">Title
+                <strong>required</strong>
+              </mat-error>
+            </mat-error> -->
+          </mat-form-field>
+        </div>
+
+        <div class="md:flex md:space-x-4 w-full py-1">
+          <mat-form-field appearance="outline" class="w-full">
             <mat-label>tag</mat-label>
             <input matInput formControlName="tag">
           </mat-form-field>
@@ -42,9 +54,22 @@
           </mat-form-field>
         </div>
 
-        <div class="flex space-x-2 mt-4">
-          <button type="button" class="text-gray-500 bg-white border border-gray-500 py-2 px-6 focus:outline-none hover:text-white hover:bg-gray-600 rounded text-lg">Cancel</button>
-          <button type="submit" class="text-white bg-gray-500 border-0 py-2 px-6 focus:outline-none hover:bg-gray-600 rounded text-lg">Save</button>
+        <div class="flex space-x-4">
+          <button class="focus:outline-none text-yellow-600 text-sm py-2.5 px-5 rounded-md border border-yellow-600 hover:bg-yellow-50" type="button" [routerLink]="['/directorate/history-lessons']">Cancel</button>
+          <button type="submit" [disabled]="historyLessonForm.invalid" [ngClass]="historyLessonForm.invalid ? 'focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-yellow-300 cursor-not-allowed' : 'focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-yellow-500 hover:bg-yellow-700 hover:shadow-lg transition-colors'" class="">
+            <span *ngIf="isLoading">
+              <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              <span>
+                Saving
+              </span>
+            </span>
+            <span *ngIf="!isLoading">
+              Save
+            </span>
+          </button>
         </div>
       </form>
 

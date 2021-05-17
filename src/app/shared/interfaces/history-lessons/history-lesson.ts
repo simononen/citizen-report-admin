@@ -17,6 +17,7 @@ interface IHistoryLessonAttributes {
   title?: string,
   description: string,
   content?: string,
+  link?: string,
   tag?: string,
   author?: string,
   showcase?: boolean
