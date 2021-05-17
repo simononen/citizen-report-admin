@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { IIllustratedStories } from 'src/app/shared/interfaces/illustrated-stories/illustrated-stories';
+import { IIllustratedStory } from 'src/app/shared/interfaces/illustrated-stories/illustrated-stories';
 import { IllustratedStoriesService } from '../_services/illustrated-stories.service';
 import Swal from 'sweetalert2';
 
@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class IllustratedStoriesListComponent implements OnInit {
 
-  illustratedStories: IIllustratedStories[] = [];
+  illustratedStories: IIllustratedStory[] = [];
 
   res: any;
 

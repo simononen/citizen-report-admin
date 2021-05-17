@@ -10,6 +10,7 @@ import { HistoryLessonsRoutingModule } from './history-lessons-routing.module';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { NewHistoryLessonComponent } from './new-history-lesson/new-history-lesson.component';
 import { NgModule } from '@angular/core';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [HistoryLessonsComponent, HistoryLessonsListComponent, NewHistoryLessonComponent, EditHistoryLessonComponent, HistoryLessonDetailComponent],
@@ -19,7 +20,8 @@ import { NgModule } from '@angular/core';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    CKEditorModule
+    CKEditorModule,
+    SharedModule,
   ]
 })
 export class HistoryLessonsModule { }
