@@ -8,6 +8,7 @@ import { IllustratedStoriesRoutingModule } from './illustrated-stories-routing.m
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { NewIllustratedStoryComponent } from './new-illustrated-story/new-illustrated-story.component';
 import { NgModule } from '@angular/core';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [IllustratedStoriesComponent, IllustratedStoriesListComponent, NewIllustratedStoryComponent, EditIllustratedStoryComponent],
@@ -16,7 +17,8 @@ import { NgModule } from '@angular/core';
     IllustratedStoriesRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule,
   ]
 })
 export class IllustratedStoriesModule { }
