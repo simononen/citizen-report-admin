@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: '', component: HistoryLessonsListComponent },
   { path: 'history-lessons-list', component: HistoryLessonsListComponent},
   { path: 'new-history-lesson', component: NewHistoryLessonComponent },
-  { path: 'edit-history-lesson', component: EditHistoryLessonComponent },
+  { path: 'edit-history-lesson/:id', component: EditHistoryLessonComponent },
 ];
 
 @NgModule({
