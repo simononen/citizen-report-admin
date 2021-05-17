@@ -51,7 +51,7 @@ export class NewIllustratedStoryComponent implements OnInit {
         'attributes': {
           'title': form.controls.title.value,
           'description': form.controls.description.value,
-          'url': form.controls.url.value,
+          'link': form.controls.url.value,
           'tag': form.controls.tag.value,
           'author': form.controls.author.value,
           'showcase': form.controls.showcase.value

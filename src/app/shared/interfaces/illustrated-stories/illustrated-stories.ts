@@ -17,7 +17,7 @@ interface IIllustratedStoryAttributes {
   title?: string,
   description: string,
   content?: string,
-  url?: string,
+  link?: string,
   tag?: string,
   author?: string,
   showcase?: boolean
