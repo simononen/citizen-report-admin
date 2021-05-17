@@ -1,1 +1,81 @@
-<p>edit-contact-information works!</p>
+<div class="flex flex-col">
+  <div class="">
+    <div class="flex my-4 text-2xl font-thin">
+      Edit Parish
+    </div>
+  </div>
+
+  <div class="flex justify-end">
+    <button class="border px-2 py-2 bg-gray-900 text-white rounded-md" [routerLink]="['/directorate/parishes']">Back</button>
+  </div>
+
+  <div>
+    <div class="flex flex-col md:ml-auto w-full mt-4" *ngIf="!isLoading">
+      <form [formGroup]="contactForm" (ngSubmit)="onSaveContact(contactForm)" class="text-gray-900">
+        <div class="md:flex md:space-x-4 w-full py-1">
+          <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Select District</mat-label>
+            <input matInput placeholder="Search Districts" aria-label="State" [matAutocomplete]="auto"
+              formControlName="district_id">
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayState" required>
+              <mat-option *ngFor="let item of filteredDistricts | async" [value]="item">
+                <span class="font-bold text-sm text-gray-700">{{item?.district_name | titlecase}}</span>
+              </mat-option>
+            </mat-autocomplete>
+            <button type="button" mat-button mat-icon-button matSuffix (click)="clearSearch()" *ngIf="district?.dirty">
+              <mat-icon>close</mat-icon>
+            </button>
+            <mat-error *ngIf="district?.invalid">
+              <mat-error *ngIf="district?.errors?.required">District
+                <strong>required</strong>
+              </mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="md:flex md:space-x-4 w-full py-1">
+          <mat-form-field appearance="outline" class="md:w-1/2 w-full">
+            <mat-label>Head Quarters</mat-label>
+            <input matInput formControlName="head_quarters">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="md:w-1/2 w-full">
+            <mat-label>Address</mat-label>
+            <input matInput formControlName="address">
+          </mat-form-field>
+        </div>
+
+        <div class="md:flex md:space-x-4 w-full py-1">
+          <mat-form-field appearance="outline" class="md:w-1/2 w-full">
+            <mat-label>Phone Number</mat-label>
+            <input matInput formControlName="phone_number">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="md:w-1/2 w-full">
+            <mat-label>Website</mat-label>
+            <input matInput formControlName="website">
+          </mat-form-field>
+        </div>
+
+        <div class="flex space-x-4">
+          <button class="focus:outline-none text-yellow-600 text-sm py-2.5 px-5 rounded-md border border-yellow-600 hover:bg-yellow-50" type="button" [routerLink]="['/directorate/parishes']">Cancel</button>
+          <button type="submit" [disabled]="contactForm.invalid" [ngClass]="contactForm.invalid ? 'focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-yellow-300 cursor-not-allowed' : 'focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-yellow-500 hover:bg-yellow-700 hover:shadow-lg transition-colors'" class="">
+            <span *ngIf="isLoading">
+              <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              <span>
+                updating
+              </span>
+            </span>
+            <span *ngIf="!isLoading">
+              Save
+            </span>
+          </button>
+        </div>
+      </form>
+
+    </div>
+
+
+  </div>
+</div>

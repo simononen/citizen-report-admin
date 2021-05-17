@@ -8,6 +8,7 @@ import { EditContactInformationComponent } from './edit-contact-information/edit
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { NewContactInformationComponent } from './new-contact-information/new-contact-information.component';
 import { NgModule } from '@angular/core';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NgModule } from '@angular/core';
     ContactInformationRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule,
   ]
 })
 export class ContactInformationModule { }

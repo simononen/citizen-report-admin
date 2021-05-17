@@ -87,23 +87,7 @@ export class ParishesListComponent implements OnInit {
       })
     );
   }
-
-  deleteCounty(id: number | string) {
-    this._parishService.deleteParish(id).subscribe(
-      (res) => {
-        Swal.fire(
-          'Deleted!',
-          'The parish record has been deleted.',
-          'success'
-        );
-        this.getParishes('');
-      },
-      (err) => {
-
-      }
-    );
-  }
-
+  
   deleteParish(id: number | string) {
     this._parishService.deleteParish(id).subscribe(
       (res) => {

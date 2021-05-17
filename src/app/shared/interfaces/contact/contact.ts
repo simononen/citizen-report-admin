@@ -14,7 +14,9 @@ interface IContactdata {
 
 interface IContactAttributes {
   id?: number | string,
-  office?: string,
-  contact_details: string,
+  head_quarters?: string,
+  address?: string,
+  phone_number?: string,
+  website?: string,
   district_id?: number
 }
